@@ -1,0 +1,25 @@
+{
+    "name": "acs-final-revision-batch-26",
+    "version": "1.0.0",
+    "description": "ACS Final Revision Batch 26 video lectures, study materials, and interactive learning platform",
+    "main": "deploy.js",
+    "scripts": {
+        "deploy": "node deploy.js && firebase deploy",
+        "version": "node deploy.js",
+        "build": "node deploy.js",
+        "start": "echo 'Starting local server...' && npx http-server public -p 8080 -o"
+    },
+    "keywords": [
+        "ACS",
+        "final revision",
+        "batch 26",
+        "education",
+        "videos",
+        "Bangladesh"
+    ],
+    "author": "Marjuk Amin",
+    "license": "MIT",
+    "devDependencies": {
+        "http-server": "^14.1.1"
+    }
+}

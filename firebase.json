@@ -1,0 +1,91 @@
+{
+    "hosting": {
+        "public": "public",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "/admin",
+                "destination": "/admin.html"
+            },
+            {
+                "source": "/converter",
+                "destination": "/converter.html"
+            },
+            {
+                "source": "/chapters",
+                "destination": "/chapters.html"
+            },
+            {
+                "source": "/lectures",
+                "destination": "/lectures.html"
+            },
+            {
+                "source": "/video-player",
+                "destination": "/video-player.html"
+            },
+            {
+                "source": "/pdf-viewer",
+                "destination": "/pdf-viewer.html"
+            },
+            {
+                "source": "/routine",
+                "destination": "/routine.html"
+            },
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ],
+        "headers": [
+            {
+                "source": "**/*.html",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "no-cache, no-store, must-revalidate"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.json",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "no-cache, no-store, must-revalidate"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.js",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "public, max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.css",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "public, max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "sw.js",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "no-cache, no-store, must-revalidate"
+                    }
+                ]
+            }
+        ]
+    }
+}

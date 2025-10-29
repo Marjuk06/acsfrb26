@@ -1,0 +1,160 @@
+{
+    "notesInfo": {
+        "title": "HSC 26 Chapter Notes - FRB 26",
+        "description": "Comprehensive study materials and notes for FRB 26",
+        "lastUpdated": "2024-01-25",
+        "totalNotes": 0,
+        "showNotes": true
+    },
+    "cycles": {
+        "frb26": {
+            "title": "FRB 26",
+            "chapters": {
+                "1": {
+                    "title": "Bangla",
+                    "notes": [
+                        {
+                            "id": "frb26-1-1",
+                            "title": "Bangla Chapter Notes",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "https://drive.google.com/file/d/17G7bSrkkagIthoPq2mlQxHe8rsITnfO7/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=17G7bSrkkagIthoPq2mlQxHe8rsITnfO7"
+                        }
+                    ]
+                },
+                "2": {
+                    "title": "English 1st Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-2-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "3": {
+                    "title": "English 2nd Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-3-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "4": {
+                    "title": "ICT",
+                    "notes": [
+                        {
+                            "id": "frb26-4-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "5": {
+                    "title": "Physics 1st Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-5-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "6": {
+                    "title": "Physics 2nd Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-6-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "7": {
+                    "title": "Chemistry 1st Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-7-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "8": {
+                    "title": "Chemistry 2nd Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-8-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "9": {
+                    "title": "Higher Math 1st Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-9-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "10": {
+                    "title": "Higher Math 2nd Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-10-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "11": {
+                    "title": "Biology 1st Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-11-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                },
+                "12": {
+                    "title": "Biology 2nd Paper",
+                    "notes": [
+                        {
+                            "id": "frb26-12-1",
+                            "title": "Coming Soon",
+                            "fileSize": "Unknown",
+                            "pdfUrl": "",
+                            "downloadUrl": ""
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "routines": [
+        {
+            "id": "routine-1",
+            "title": "Weekly Class Schedule",
+            "description": "Main weekly class routine for all subjects",
+            "image": "routine-weekly.jpg",
+            "type": "schedule"
+        },
+        {
+            "id": "routine-2",
+            "title": "Exam Schedule",
+            "description": "Upcoming exam dates and timings",
+            "image": "routine-exam.jpg",
+            "type": "exam"
+        },
+        {
+            "id": "routine-3",
+            "title": "Lab Schedule",
+            "description": "Laboratory practical class timings",
+            "image": "routine-lab.jpg",
+            "type": "lab"
+        },
+        {
+            "id": "routine-4",
+            "title": "Holiday Calendar",
+            "description": "Academic holidays and breaks",
+            "image": "routine-holiday.jpg",
+            "type": "holiday"
+        }
+    ],
+    "lastUpdated": "2024-01-15"
+}

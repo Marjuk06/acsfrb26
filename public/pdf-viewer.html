@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACS Final Revision Batch 26 - PDF Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f0f;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 60px 0 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .chapter-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .chapter-info h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .note-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* Neon running light effect for PDF viewer cards */
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+            animation: neonRun 3s linear infinite;
+            z-index: 3;
+        }
+
+        .note-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+            animation: neonRun 3s linear infinite reverse;
+            z-index: 3;
+        }
+
+        @keyframes neonRun {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            border-color: #667eea;
+        }
+
+        .note-header {
+            margin-bottom: 20px;
+        }
+
+        .note-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .note-description {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .note-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .file-size,
+        .last-updated {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topics-section {
+            margin-bottom: 25px;
+        }
+
+        .topics-section h4 {
+            color: #667eea;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .topics-list {
+            list-style: none;
+        }
+
+        .topics-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topics-list li i {
+            color: #4CAF50;
+            font-size: 0.9rem;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* PDF Preview Styles */
+        .pdf-preview-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .pdf-preview-container.expanded {
+            max-height: 1000px;
+        }
+
+        .pdf-preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .pdf-preview-header h4 {
+            color: #667eea;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .back-to-course {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-to-course:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+        }
+
+        .pdf-embed {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+
+        .pdf-embed iframe {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1000px;
+            height: 700px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            flex: 1;
+            justify-content: center;
+            min-width: 140px;
+        }
+
+        .btn-preview {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-preview:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 9px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 1.2rem;
+            z-index: 9999;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .note-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .back-button {
+                top: 9px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .pdf-embed iframe {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-button {
+                top: 9px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="back-button" onclick="goBackToCourse()" title="Back to Course">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-file-pdf"></i> Chapter Notes</h1>
+            <p class="subtitle">Comprehensive study materials and resources</p>
+        </div>
+
+        <div id="content">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <p>Loading chapter notes...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const cycleId = urlParams.get('cycle');
+
+        // Load and display all cycle notes
+        async function loadChapterNotes() {
+            try {
+                // Load appropriate notes data based on cycle
+                let response;
+                if (cycleId === 'frb26') {
+                    response = await fetch('frb26/notes.json');
+                } else {
+                    response = await fetch('chapter-notes.json');
+                }
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Check if notes should be shown
+                if (!data.notesInfo.showNotes) {
+                    throw new Error('Notes are currently disabled');
+                }
+
+                // Get cycle data
+                const cycle = data.cycles[cycleId];
+                if (!cycle) {
+                    throw new Error(`Cycle ${cycleId} not found`);
+                }
+
+                displayAllCycleNotes(cycle, data.notesInfo);
+
+            } catch (error) {
+                console.error('Error loading cycle notes:', error);
+                showError(error.message);
+            }
+        }
+
+        function displayAllCycleNotes(cycle, notesInfo) {
+            const contentDiv = document.getElementById('content');
+
+            let html = `
+                <div class="chapter-info">
+                    <h2><i class="fas fa-book-open"></i> ${cycle.title}</h2>
+                    <p>Access comprehensive study materials and notes for all chapters</p>
+                </div>
+            `;
+
+            // Collect all notes from all chapters
+            let allNotes = [];
+            Object.keys(cycle.chapters).forEach(chapterId => {
+                const chapter = cycle.chapters[chapterId];
+                if (chapter.notes && chapter.notes.length > 0) {
+                    allNotes = allNotes.concat(chapter.notes);
+                }
+            });
+
+            if (allNotes.length > 0) {
+                html += `
+                    <div class="notes-grid">
+                        ${allNotes.map(note => `
+                            <div class="note-card">
+                                <div class="note-header">
+                                    <h3 class="note-title">${note.title}</h3>
+                                    <div class="note-meta">
+                                        <span class="file-size">
+                                            <i class="fas fa-file-pdf"></i> ${note.fileSize}
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="note-actions">
+                                    <button onclick="showPdfPreview('${note.pdfUrl}', '${note.title}')" class="btn btn-preview">
+                                        <i class="fas fa-eye"></i> Preview
+                                    </button>
+                                    <a href="${note.downloadUrl}" download class="btn btn-download">
+                                        <i class="fas fa-download"></i> Download
+                                    </a>
+                                </div>
+                                
+                                <div class="pdf-preview-container" id="preview-${note.title.replace(/\s+/g, '-')}">
+                                    <div class="pdf-preview-header">
+                                        <h4>${note.title}</h4>
+                                        <button class="back-to-course" onclick="goBackToCourse()">
+                                            <i class="fas fa-arrow-left"></i>
+                                            Back to Course
+                                        </button>
+                                    </div>
+                                    <div class="pdf-embed">
+                                        <iframe 
+                                            src="${note.pdfUrl}" 
+                                            width="100%" 
+                                            height="700" 
+                                            allow="autoplay"
+                                            style="max-width: 1000px;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="error-message">
+                        <i class="fas fa-info-circle"></i>
+                        <p>No notes available for this cycle yet. Check back later!</p>
+                    </div>
+                `;
+            }
+
+            contentDiv.innerHTML = html;
+        }
+
+        function showError(message) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Error Loading Notes</h3>
+                    <p>${message}</p>
+                    <button onclick="location.reload()" style="
+                        background: #667eea; 
+                        color: white; 
+                        border: none; 
+                        padding: 12px 24px; 
+                        border-radius: 5px; 
+                        cursor: pointer;
+                        margin-top: 15px;
+                    ">Retry</button>
+                </div>
+            `;
+        }
+
+        // PDF Preview functionality
+        function showPdfPreview(pdfUrl, title) {
+            const previewId = `preview-${title.replace(/\s+/g, '-')}`;
+            const previewContainer = document.getElementById(previewId);
+
+            if (previewContainer) {
+                // Close any other open previews first
+                document.querySelectorAll('.pdf-preview-container').forEach(container => {
+                    container.classList.remove('expanded');
+                });
+
+                // Open this preview
+                previewContainer.classList.add('expanded');
+
+                // Scroll to the preview
+                previewContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function goBackToCourse() {
+            // Get the cycle ID from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const cycleId = urlParams.get('cycle');
+
+            // Navigate back to the lectures page for the current cycle
+            if (cycleId) {
+                // Try to get chapter ID from URL or default to 1
+                const chapterId = urlParams.get('chapter') || '1';
+                window.location.href = `lectures?cycle=${cycleId}&chapter=${chapterId}`;
+            } else {
+                // Fallback to main page
+                window.location.href = 'index';
+            }
+        }
+
+        function hidePdfPreview(title) {
+            const previewId = `preview-${title.replace(/\s+/g, '-')}`;
+            const previewContainer = document.getElementById(previewId);
+
+            if (previewContainer) {
+                previewContainer.classList.remove('expanded');
+            }
+        }
+
+        // Load notes when page loads
+        window.addEventListener('load', loadChapterNotes);
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        function showUpdateNotification() {
+            const notification = document.createElement('div');
+            notification.id = 'sw-update-notification';
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    z-index: 10000;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 14px;
+                    max-width: 300px;
+                    animation: slideIn 0.3s ease-out;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                ">
+                    <i class="fas fa-sync-alt fa-spin" style="margin-right: 8px;"></i>
+                    <strong>🚀 Update Available!</strong><br>
+                    New content is ready. Click to refresh and get the latest updates.
+                    <button onclick="updateApp()" style="
+                        background: white;
+                        color: #667eea;
+                        border: none;
+                        padding: 8px 15px;
+                        border-radius: 8px;
+                        margin: 10px 0 0 0;
+                        cursor: pointer;
+                        font-weight: bold;
+                        width: 100%;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        Update Now
+                    </button>
+                </div>
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+        }
+
+        function updateApp() {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>

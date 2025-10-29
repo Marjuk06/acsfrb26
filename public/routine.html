@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Routine - FRB 26</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FRB 26">
+    <link rel="apple-touch-icon" href="icons/FRB-26.png">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <h1>Class Routine</h1>
+            <p>View class schedules and important timetables</p>
+        </header>
+
+        <div class="routine-grid" id="routineContainer">
+            <!-- Routine cards will be loaded here -->
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load routine data
+        async function loadRoutines() {
+            try {
+                const response = await fetch('routine.json');
+                const data = await response.json();
+                displayRoutines(data.routines);
+            } catch (error) {
+                console.error('Error loading routines:', error);
+                document.getElementById('routineContainer').innerHTML =
+                    '<div class="error-message">Failed to load routine data. Please try again later.</div>';
+            }
+        }
+
+        function displayRoutines(routines) {
+            const container = document.getElementById('routineContainer');
+
+            if (routines.length === 0) {
+                container.innerHTML = '<div class="no-routines">No routine data available.</div>';
+                return;
+            }
+
+            container.innerHTML = routines.map(routine => `
+                <div class="routine-item" onclick="openImageModal('${routine.image}', '${routine.title}')">
+                    <div class="routine-image-container">
+                        <img src="assets/${routine.image}" alt="${routine.title}" class="routine-image" 
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4='">
+                        <div class="routine-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="routine-info">
+                        <h3>${routine.title}</h3>
+                        <p>${routine.description}</p>
+                        <span class="routine-type">${routine.type}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openImageModal(imageSrc, title) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const caption = document.getElementById('caption');
+
+            modal.style.display = 'block';
+            modalImg.src = `assets/${imageSrc}`;
+            caption.textContent = title;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function (event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Load routines when page loads
+        document.addEventListener('DOMContentLoaded', loadRoutines);
+    </script>
+</body>
+
+</html>

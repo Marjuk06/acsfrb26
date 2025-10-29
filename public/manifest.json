@@ -1,0 +1,84 @@
+{
+    "name": "ACS Final Revision Batch 26",
+    "short_name": "ACS FRB 26",
+    "description": "Comprehensive revision courses for HSC 2026 students across all subjects",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0c1122",
+    "theme_color": "#667eea",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "dir": "ltr",
+    "categories": [
+        "education",
+        "study",
+        "learning"
+    ],
+    "icons": [
+        {
+            "src": "icons/FRB-26.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/FRB-26.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshots/desktop-screenshot.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshots/mobile-screenshot.png",
+            "sizes": "375x667",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "FRB 26 Lectures",
+            "short_name": "FRB 26",
+            "description": "Access FRB 26 lectures directly",
+            "url": "/chapters?cycle=frb26",
+            "icons": [
+                {
+                    "src": "icons/icon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Archive Classes",
+            "short_name": "Archive",
+            "description": "Access archived classes",
+            "url": "/chapters?cycle=frb25",
+            "icons": [
+                {
+                    "src": "icons/icon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "URL Converter",
+            "short_name": "Converter",
+            "description": "Convert YouTube and Drive links",
+            "url": "/converter",
+            "icons": [
+                {
+                    "src": "icons/icon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

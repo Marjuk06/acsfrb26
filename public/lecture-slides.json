@@ -1,0 +1,1318 @@
+{
+    "courseInfo": {
+        "title": "ACS Final Revision Batch 26 Lecture Slides",
+        "description": "Lecture slides and study materials for Archive (FRB 25)"
+    },
+    "cycles": {
+        "2": {
+            "id": 2,
+            "title": "Cycle 2",
+            "chaptersList": [
+                {
+                    "id": 1,
+                    "title": "Chapter 1: Newtonian Mechanics",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Newtonian Mechanics - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Newtonian Mechanics - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Newtonian Mechanics - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Newtonian Mechanics - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Newtonian Mechanics - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Newtonian Mechanics - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Newtonian Mechanics - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Newtonian Mechanics - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Newtonian Mechanics - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Newtonian Mechanics - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Newtonian Mechanics - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "title": "Newtonian Mechanics - Lecture 12",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 12",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "title": "Newtonian Mechanics - Lecture 13",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 13",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 14,
+                            "title": "Newtonian Mechanics - Lecture 14",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 14",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 15,
+                            "title": "Newtonian Mechanics - Lecture 15",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 15",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 16,
+                            "title": "Newtonian Mechanics - Lecture 16",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 16",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 17,
+                            "title": "Newtonian Mechanics - Lecture 17",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 17",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 18,
+                            "title": "Newtonian Mechanics - Lecture 18",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 18",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 19,
+                            "title": "Newtonian Mechanics - Lecture 19",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 19",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 20,
+                            "title": "Newtonian Mechanics - Lecture 20",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 20",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 21,
+                            "title": "Newtonian Mechanics - Lecture 21",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 21",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 22,
+                            "title": "Newtonian Mechanics - Lecture 22",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 22",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 23,
+                            "title": "Newtonian Mechanics - Lecture 23",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 23",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 24,
+                            "title": "Newtonian Mechanics - Lecture 24",
+                            "slides": [
+                                {
+                                    "title": "Newtonian Mechanics - Lecture 24",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 1 - Newtonian Mechanics"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Chapter 5: Work, Energy, Power",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Work, Energy, Power - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Work, Energy, Power - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 5 - Work, Energy, Power"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Work, Energy, Power - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Work, Energy, Power - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 5 - Work, Energy, Power"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Work, Energy, Power - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Work, Energy, Power - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 5 - Work, Energy, Power"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Work, Energy, Power - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Work, Energy, Power - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 5 - Work, Energy, Power"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Work, Energy, Power - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Work, Energy, Power - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 5 - Work, Energy, Power"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Chapter 6: Gravitation & Gravity",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Gravitation & Gravity - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Gravitation & Gravity - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Gravitation & Gravity - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Gravitation & Gravity - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Gravitation & Gravity - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Gravitation & Gravity - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Gravitation & Gravity - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Gravitation & Gravity - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Gravitation & Gravity - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Gravitation & Gravity - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Gravitation & Gravity - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "title": "Gravitation & Gravity - Lecture 12",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 12",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "title": "Gravitation & Gravity - Lecture 13",
+                            "slides": [
+                                {
+                                    "title": "Gravitation & Gravity - Lecture 13",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 6 - Gravitation & Gravity"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Chapter 7: Structural Properties of Matter",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Structural Properties of Matter - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Structural Properties of Matter - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Structural Properties of Matter - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Structural Properties of Matter - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Structural Properties of Matter - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Structural Properties of Matter - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Structural Properties of Matter - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Structural Properties of Matter - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Structural Properties of Matter - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Structural Properties of Matter - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Structural Properties of Matter - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "title": "Structural Properties of Matter - Lecture 12",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 12",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "title": "Structural Properties of Matter - Lecture 13",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 13",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 14,
+                            "title": "Structural Properties of Matter - Lecture 14",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 14",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 15,
+                            "title": "Structural Properties of Matter - Lecture 15",
+                            "slides": [
+                                {
+                                    "title": "Structural Properties of Matter - Lecture 15",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 1st paper Chapter 7 - Structural Properties of Matter"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "3": {
+            "id": 3,
+            "title": "Cycle 3",
+            "chaptersList": [
+                {
+                    "id": 1,
+                    "title": "Chapter 6: জ্যামিতিক আলোকবিজ্ঞান",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "জ্যামিতিক আলোকবিজ্ঞান-১",
+                            "slides": [
+                                {
+                                    "title": "জ্যামিতিক আলোকবিজ্ঞান - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 6"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "জ্যামিতিক আলোকবিজ্ঞান-২",
+                            "slides": [
+                                {
+                                    "title": "জ্যামিতিক আলোকবিজ্ঞান - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 6"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "জ্যামিতিক আলোকবিজ্ঞান-৩",
+                            "slides": [
+                                {
+                                    "title": "জ্যামিতিক আলোকবিজ্ঞান - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 6"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "জ্যামিতিক আলোকবিজ্ঞান-৪",
+                            "slides": [
+                                {
+                                    "title": "জ্যামিতিক আলোকবিজ্ঞান - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 6"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "জ্যামিতিক আলোকবিজ্ঞান-৫",
+                            "slides": [
+                                {
+                                    "title": "জ্যামিতিক আলোকবিজ্ঞান - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 6"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Chapter 8: Periodic Motion",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Periodic Motion - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Periodic Motion - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Periodic Motion - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Periodic Motion - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Periodic Motion - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Periodic Motion - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Periodic Motion - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Periodic Motion - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Periodic Motion - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Periodic Motion - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Periodic Motion - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "title": "Periodic Motion - Lecture 12",
+                            "slides": [
+                                {
+                                    "title": "Periodic Motion - Lecture 12",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Chapter 10: Physical Optics",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Physical Optics - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Physical Optics - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Physical Optics - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Physical Optics - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Physical Optics - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Physical Optics - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Physical Optics - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Physical Optics - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Physical Optics - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Physical Optics - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Physical Optics - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics 2nd paper Chapter 10"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "5": {
+            "id": 5,
+            "title": "Cycle 5",
+            "chaptersList": [
+                {
+                    "id": 1,
+                    "title": "Chapter 3: Current Electricity",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Current Electricity - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Current Electricity - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Current Electricity - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Current Electricity - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Current Electricity - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Current Electricity - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Current Electricity - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Current Electricity - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Current Electricity - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Current Electricity - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Current Electricity - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 12,
+                            "title": "Current Electricity - Lecture 12",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 12",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 13,
+                            "title": "Current Electricity - Lecture 13",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 13",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 14,
+                            "title": "Current Electricity - Lecture 14",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 14",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 15,
+                            "title": "Current Electricity - Lecture 15",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 15",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 16,
+                            "title": "Current Electricity - Lecture 16",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 16",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 17,
+                            "title": "Current Electricity - Lecture 17",
+                            "slides": [
+                                {
+                                    "title": "Current Electricity - Lecture 17",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Chapter 3 Current Electricity"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "6": {
+            "id": 6,
+            "title": "Cycle 6",
+            "chaptersList": [
+                {
+                    "id": 1,
+                    "title": "Chapter: Modern Physics",
+                    "lectures": [
+                        {
+                            "id": 1,
+                            "title": "Modern Physics - Lecture 1",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 1",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "title": "Modern Physics - Lecture 2",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 2",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "Modern Physics - Lecture 3",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 3",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "title": "Modern Physics - Lecture 4",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 4",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "title": "Modern Physics - Lecture 5",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 5",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "title": "Modern Physics - Lecture 6",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 6",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 7,
+                            "title": "Modern Physics - Lecture 7",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 7",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 8,
+                            "title": "Modern Physics - Lecture 8",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 8",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 9,
+                            "title": "Modern Physics - Lecture 9",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 9",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 10,
+                            "title": "Modern Physics - Lecture 10",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 10",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 11,
+                            "title": "Modern Physics - Lecture 11",
+                            "slides": [
+                                {
+                                    "title": "Modern Physics - Lecture 11",
+                                    "gdriveLink": "https://drive.google.com/file/d/1x2AXY58lLcWTjYxjXXq9UekAOuG9IJbv/preview",
+                                    "description": "Physics Modern Physics"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

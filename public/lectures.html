@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures - ACS Final Revision Batch 26</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ACS Final Revision Batch 26">
+    <meta name="description" content="ACS Final Revision Batch 26 video lectures and study materials">
+    <meta name="keywords" content="ACS, final revision, batch 26, video lectures, education, Bangladesh">
+    <meta name="author" content="Marjuk Amin">
+
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css?v=1761718086696" as="style">
+    <link rel="preload" href="videos.json" as="fetch" crossorigin>
+
+    <link rel="stylesheet" href="style.css?v=1761718086696">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7351267348730556"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="back-button" onclick="goBack()">
+                <span>← Back to Chapters</span>
+            </div>
+            <h1 id="chapterTitle">Loading...</h1>
+        </header>
+
+        <div class="lectures-grid" id="lecturesContainer">
+            <!-- Lecture cards will be dynamically generated here -->
+        </div>
+        <script type='text/javascript'
+            src='//pl27484987.profitableratecpm.com/da/82/03/da82033601afdc6f3e130999e5661d05.js'></script>
+        <script async="async" data-cfasync="false"
+            src="//pl27562612.revenuecpmgate.com/bf306d013af4b46c042d51e784c12fe6/invoke.js"></script>
+        <div id="container-bf306d013af4b46c042d51e784c12fe6"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; All rights reserved.</p>
+            <p>Developed by Marjuk Amin</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Marjuk06" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/codenest_by_marjuk" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+            <p class="website-link">
+                To know more about me you can visit my website:
+                <a href="https://marjukcreates.org/" target="_blank">marjukcreates.org</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function goBack() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cycleId = urlParams.get('cycle') || 'frb25';
+            window.location.href = `chapters.html?cycle=${cycleId}`;
+        }
+    </script>
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js?v=1761718086696"></script>
+    <script type='text/javascript'
+        src='//pl27562641.revenuecpmgate.com/4d/94/2c/4d942c8e104edae7273e13f4ac956020.js'></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        function showUpdateNotification() {
+            const notification = document.createElement('div');
+            notification.id = 'sw-update-notification';
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    z-index: 10000;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 14px;
+                    max-width: 300px;
+                    animation: slideIn 0.3s ease-out;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                ">
+                    <i class="fas fa-sync-alt fa-spin" style="margin-right: 8px;"></i>
+                    <strong>🚀 Update Available!</strong><br>
+                    New content is ready. Click to refresh and get the latest updates.
+                    <button onclick="updateApp()" style="
+                        background: white;
+                        color: #667eea;
+                        border: none;
+                        padding: 8px 15px;
+                        border-radius: 8px;
+                        margin: 10px 0 0 0;
+                        cursor: pointer;
+                        font-weight: bold;
+                        width: 100%;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        Update Now
+                    </button>
+                </div>
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+        }
+
+        function updateApp() {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>

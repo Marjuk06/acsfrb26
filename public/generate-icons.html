@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #0c1122;
+            color: white;
+        }
+
+        .icon-preview {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        canvas {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #4c63d2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PWA Icon Generator</h1>
+    <p>Click "Generate Icons" to create all required icon sizes for your PWA.</p>
+
+    <button onclick="generateAllIcons()">Generate All Icons</button>
+    <button onclick="downloadAll()">Download All Icons</button>
+
+    <div id="previews"></div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        const canvases = {};
+
+        function generateAllIcons() {
+            const previews = document.getElementById('previews');
+            previews.innerHTML = '';
+
+            sizes.forEach(size => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                canvas.id = `canvas-${size}`;
+                canvases[size] = canvas;
+
+                const ctx = canvas.getContext('2d');
+                drawIcon(ctx, size);
+
+                const preview = document.createElement('div');
+                preview.className = 'icon-preview';
+                preview.innerHTML = `
+                    <div>${size}x${size}</div>
+                    <canvas id="canvas-${size}" width="${size}" height="${size}"></canvas>
+                    <br>
+                    <button onclick="downloadIcon(${size})">Download</button>
+                `;
+                previews.appendChild(preview);
+            });
+        }
+
+        function drawIcon(ctx, size) {
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const radius = size * 0.4;
+
+            // Background Circle
+            ctx.fillStyle = '#667eea';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Inner Circle
+            ctx.fillStyle = '#0c1122';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius * 0.8, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Book
+            const bookWidth = size * 0.2;
+            const bookHeight = size * 0.1;
+            const bookX = centerX - bookWidth / 2;
+            const bookY = centerY - bookHeight / 2;
+
+            ctx.fillStyle = '#667eea';
+            ctx.fillRect(bookX, bookY, bookWidth, bookHeight);
+
+            // Book pages
+            ctx.fillStyle = '#1a1f3a';
+            ctx.fillRect(bookX + 2, bookY + 2, bookWidth - 4, bookHeight - 4);
+
+            // Book lines
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = size * 0.003;
+            for (let i = 0; i < 4; i++) {
+                const y = bookY + 5 + (i * 8);
+                ctx.beginPath();
+                ctx.moveTo(bookX + 5, y);
+                ctx.lineTo(bookX + bookWidth - 5, y);
+                ctx.stroke();
+            }
+
+            // Graduation cap
+            const capY = centerY - radius * 0.6;
+            ctx.fillStyle = '#667eea';
+            ctx.fillRect(centerX - bookWidth / 2, capY, bookWidth, size * 0.03);
+
+            // Cap top
+            ctx.fillStyle = '#4c63d2';
+            ctx.beginPath();
+            ctx.moveTo(centerX - bookWidth / 2, capY);
+            ctx.lineTo(centerX - bookWidth / 4, capY - size * 0.03);
+            ctx.lineTo(centerX + bookWidth / 4, capY - size * 0.03);
+            ctx.lineTo(centerX + bookWidth / 2, capY);
+            ctx.closePath();
+            ctx.fill();
+
+            // Tassel
+            ctx.strokeStyle = '#ffd700';
+            ctx.lineWidth = size * 0.004;
+            ctx.beginPath();
+            ctx.moveTo(centerX + bookWidth / 4, capY - size * 0.03);
+            ctx.lineTo(centerX + bookWidth / 3, capY - size * 0.08);
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffd700';
+            ctx.beginPath();
+            ctx.arc(centerX + bookWidth / 3, capY - size * 0.08, size * 0.006, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Study elements
+            const elementSize = size * 0.05;
+
+            // Calculator
+            ctx.fillStyle = '#1a1f3a';
+            ctx.fillRect(centerX - radius * 0.4, centerY + radius * 0.3, elementSize, elementSize * 1.2);
+
+            // Pencil
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = size * 0.008;
+            ctx.beginPath();
+            ctx.moveTo(centerX + radius * 0.4, centerY + radius * 0.3);
+            ctx.lineTo(centerX + radius * 0.4, centerY + radius * 0.5);
+            ctx.stroke();
+
+            // Atom
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = size * 0.003;
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.ellipse(centerX, centerY + radius * 0.4, radius * 0.3, radius * 0.1, 0, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.ellipse(centerX, centerY + radius * 0.4, radius * 0.1, radius * 0.3, 0, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+
+            // Center dot
+            ctx.fillStyle = '#667eea';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY + radius * 0.4, size * 0.006, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function downloadIcon(size) {
+            const canvas = canvases[size];
+            const link = document.createElement('a');
+            link.download = `icon-${size}x${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function downloadAll() {
+            sizes.forEach(size => {
+                setTimeout(() => downloadIcon(size), size * 10);
+            });
+        }
+
+        // Auto-generate on load
+        window.onload = generateAllIcons;
+    </script>
+</body>
+
+</html>
+

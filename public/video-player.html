@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player - ACS Final Revision Batch 26</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ACS Final Revision Batch 26">
+    <meta name="description" content="ACS Final Revision Batch 26 video lectures and study materials">
+    <meta name="keywords" content="ACS, final revision, batch 26, video lectures, education, Bangladesh">
+    <meta name="author" content="Marjuk Amin">
+
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16x16.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css?v=1761718086696" as="style">
+    <link rel="preload" href="videos.json" as="fetch" crossorigin>
+    <link rel="dns-prefetch" href="//www.youtube.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="style.css?v=1761718086696">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7351267348730556"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="back-button" onclick="goBack()">
+                <span>← Back to Lectures</span>
+            </div>
+            <h1 id="lecture-title">Loading...</h1>
+        </header>
+
+        <div class="custom-video-player">
+            <div class="video-container">
+                <div id="youtube-iframe"></div>
+            </div>
+            <div class="custom-controls">
+                <div class="control-left">
+                    <button class="prev-btn" title="Previous">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="play-pause-btn" title="Play/Pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="next-btn" title="Next">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                        <div class="progress-handle"></div>
+                    </div>
+                    <span class="time-display">00:00 / 00:00</span>
+                </div>
+                <div class="control-right">
+                    <div class="volume-control">
+                        <button class="volume-btn" title="Mute/Unmute">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <input type="range" class="volume-slider" min="0" max="100" value="100" title="Volume">
+                    </div>
+                    <div class="settings-control">
+                        <button class="settings-btn" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <div class="settings-dropdown">
+                            <div class="settings-item" onclick="openSubSettings('speed')">
+                                <i class="fas fa-play"></i>
+                                <span>Playback speed</span>
+                                <span class="current-value" id="current-speed">Normal</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <div class="settings-item" onclick="openSubSettings('quality')">
+                                <i class="fas fa-cog"></i>
+                                <span>Quality</span>
+                                <span class="current-value" id="current-quality">Auto (1080p HD)</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub-settings for playback speed -->
+                    <div class="sub-settings-dropdown" id="speed-sub-settings">
+                        <div class="sub-settings-header">
+                            <button class="back-btn" onclick="closeSubSettings()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h3>Playback speed</h3>
+                        </div>
+                        <div class="sub-settings-content">
+                            <div class="speed-option active" data-speed="1">Normal</div>
+                            <div class="speed-option" data-speed="1.25">1.25x</div>
+                            <div class="speed-option" data-speed="1.5">1.5x</div>
+                            <div class="speed-option" data-speed="1.75">1.75x</div>
+                            <div class="speed-option" data-speed="2">2x</div>
+                        </div>
+                    </div>
+
+                    <!-- Sub-settings for quality -->
+                    <div class="sub-settings-dropdown" id="quality-sub-settings">
+                        <div class="sub-settings-header">
+                            <button class="back-btn" onclick="closeSubSettings()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h3>Quality</h3>
+                        </div>
+                        <div class="sub-settings-content" id="quality-options">
+                            <!-- Dynamic quality options will be populated here -->
+                            <div class="quality-loading">Loading available qualities...</div>
+                        </div>
+                    </div>
+
+                    <button class="fullscreen-btn" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lecture-info">
+            <h2 id="lecture-description">Loading...</h2>
+            <p id="lecture-duration">Loading...</p>
+        </div>
+
+        <div class="lecture-card">
+            <div class="lecture-card-header" onclick="toggleLectureCard()">
+                <h3>📚 Lecture Slides</h3>
+                <i class="fas fa-chevron-down" id="lecture-chevron"></i>
+            </div>
+            <div class="lecture-card-content" id="lecture-content">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading lecture slides...</span>
+                </div>
+            </div>
+        </div>
+
+        <script async="async" data-cfasync="false"
+            src="//pl27562612.revenuecpmgate.com/bf306d013af4b46c042d51e784c12fe6/invoke.js"></script>
+        <div id="container-bf306d013af4b46c042d51e784c12fe6"></div>
+    </div>
+
+    <script>
+        let player;
+        let currentLecture = null;
+        let isPlaying = false;
+        let currentSpeed = 1;
+        let currentQuality = 'auto';
+        let volume = 1;
+        let isMuted = false;
+        let settingsOpen = false;
+        let subSettingsOpen = false;
+        let currentSubSettings = null;
+        let controlsTimeout = null; // For auto-hiding controls
+        let isControlsVisible = true; // Track controls visibility
+        let videoDuration = 0; // Store calculated duration
+        let availableQualities = []; // Store available video qualities
+
+        // Touch gesture variables
+        let lastTap = 0;
+        let tapCount = 0;
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let isVolumeGesture = false;
+        let isSeekGesture = false;
+        let initialVolume = 1;
+
+        function goBack() {
+            // Save current state before going back
+            const urlParams = new URLSearchParams(window.location.search);
+            const cycleId = urlParams.get('cycle') || 'frb25';
+            const chapterId = urlParams.get('chapter') || '1';
+
+            // Use replace to prevent back button issues
+            const targetUrl = `lectures.html?cycle=${cycleId}&chapter=${chapterId}`;
+
+            // Add a timestamp to prevent caching issues
+            const separator = targetUrl.includes('?') ? '&' : '?';
+            const backUrl = `${targetUrl}${separator}_t=${Date.now()}`;
+
+            console.log('Navigating back to:', backUrl);
+            window.location.replace(backUrl);
+        }
+
+        // Get lecture ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const lectureId = urlParams.get('id');
+
+        // Load YouTube API
+        function loadYouTubeAPI() {
+            // Preload the API script
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            tag.async = true;
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+
+        // YouTube API ready callback
+        function onYouTubeIframeAPIReady() {
+            // Preload video data immediately
+            preloadVideoData();
+        }
+
+        // Preload video data for faster navigation
+        async function preloadVideoData() {
+            try {
+                const response = await fetch('videos.json');
+                const data = await response.json();
+
+                // Store data globally for faster access
+                window.videoData = data;
+
+                // Start loading the current video
+                loadAndPlayVideo();
+            } catch (error) {
+                console.error('Error preloading video data:', error);
+                loadAndPlayVideo();
+            }
+        }
+
+        // Load lecture data and create player
+        async function loadAndPlayVideo() {
+            try {
+                // Use preloaded data if available
+                const data = window.videoData || await fetch('videos.json').then(r => r.json());
+
+                // Get cycle and chapter from URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                const cycleId = urlParams.get('cycle') || 'frb25';
+                const chapterId = urlParams.get('chapter') || '1';
+
+                console.log('Loading video for cycle:', cycleId, 'chapter:', chapterId, 'lecture ID:', lectureId);
+
+                // Find the correct cycle and chapter
+                const cycle = data.cycles[cycleId];
+                if (!cycle) {
+                    console.error('Cycle not found:', cycleId);
+                    alert('Cycle not found!');
+                    goBack();
+                    return;
+                }
+
+                const chapter = cycle.chaptersList.find(c => c.id === parseInt(chapterId));
+                if (!chapter) {
+                    console.error('Chapter not found:', chapterId);
+                    alert('Chapter not found!');
+                    goBack();
+                    return;
+                }
+
+                currentLecture = chapter.lectures.find(l => l.id === parseInt(lectureId));
+
+                if (currentLecture) {
+                    // Update page title
+                    document.title = `${currentLecture.title} - ACS Final Revision Batch 26`;
+
+                    // Update lecture title
+                    document.getElementById('lecture-title').textContent = currentLecture.title;
+
+                    // Update description
+                    document.getElementById('lecture-description').textContent = currentLecture.description;
+
+                    // Update duration
+                    document.getElementById('lecture-duration').textContent = `Duration: ${currentLecture.duration}`;
+
+                    // Create YouTube player with optimized settings
+                    createPlayer();
+                } else {
+                    alert('Lecture not found!');
+                    goBack();
+                }
+            } catch (error) {
+                console.error('Error loading video:', error);
+                alert('Error loading video. Please try again.');
+                goBack();
+            }
+        }
+
+        function createPlayer() {
+            const videoId = getVideoIdFromUrl(currentLecture.videoUrl);
+
+            player = new YT.Player('youtube-iframe', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'modestbranding': 1,
+                    'showinfo': 0,
+                    'rel': 0,
+                    'controls': 0,
+                    'disablekb': 1,
+                    'fs': 0,
+                    'iv_load_policy': 3,
+                    'cc_load_policy': 0,
+                    'autoplay': 0,
+                    'origin': window.location.origin,
+                    'enablejsapi': 1,
+                    'widget_referrer': window.location.href
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function getVideoIdFromUrl(url) {
+            const regex = /(?:youtube\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=)([^&\n?#]+)/;
+            const match = url.match(regex);
+            return match ? match[1] : '';
+        }
+
+        function onPlayerReady(event) {
+            setupEventListeners();
+            preventRightClick();
+            updateProgress();
+
+            // Get video duration and update display
+            if (player.getDuration) {
+                videoDuration = player.getDuration();
+                updateDurationDisplay();
+            }
+
+            // Initialize current settings display
+            updateCurrentSpeedDisplay();
+            updateCurrentQualityDisplay();
+
+            // Initialize controls as hidden
+            hideControls();
+        }
+
+        function onPlayerStateChange(event) {
+            isPlaying = event.data === YT.PlayerState.PLAYING;
+            updatePlayPauseButton();
+
+            // Start auto-hide timer when video starts playing
+            if (isPlaying) {
+                if (controlsTimeout) {
+                    clearTimeout(controlsTimeout);
+                }
+                controlsTimeout = setTimeout(() => {
+                    hideControls();
+                }, 3000);
+            }
+        }
+
+        function setupEventListeners() {
+            // Play/Pause button
+            document.querySelector('.play-pause-btn').addEventListener('click', togglePlayPause);
+
+            // Progress bar
+            document.querySelector('.progress-bar').addEventListener('click', seekTo);
+
+            // Draggable progress bar
+            setupDraggableProgress();
+
+            // Touch gestures for mobile
+            setupTouchGestures();
+
+            // Video container tap to play/pause
+            document.querySelector('.video-container').addEventListener('click', handleVideoTap);
+
+            // Mouse movement to show/hide controls
+            document.querySelector('.custom-video-player').addEventListener('mousemove', showControls);
+            document.querySelector('.custom-video-player').addEventListener('mouseleave', hideControls);
+
+            // Touch events for mobile controls visibility
+            document.querySelector('.custom-video-player').addEventListener('touchstart', showControls);
+
+            // Volume control
+            document.querySelector('.volume-slider').addEventListener('input', (e) => {
+                setVolume(e.target.value / 100);
+            });
+
+            document.querySelector('.volume-btn').addEventListener('click', toggleMute);
+
+            // Settings control
+            document.querySelector('.settings-btn').addEventListener('click', toggleSettings);
+
+            // Speed control
+            document.querySelectorAll('.speed-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    setPlaybackRate(parseFloat(e.target.dataset.speed));
+                });
+            });
+
+            // Note: Resolution control now handled by new quality system
+
+            // Close settings when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.settings-control') && !e.target.closest('.sub-settings-dropdown')) {
+                    closeSettings();
+                    if (subSettingsOpen) {
+                        closeSubSettings();
+                    }
+                }
+            });
+
+            // Fullscreen
+            document.querySelector('.fullscreen-btn').addEventListener('click', toggleFullscreen);
+
+            // Previous/Next buttons
+            document.querySelector('.prev-btn').addEventListener('click', previousLecture);
+            document.querySelector('.next-btn').addEventListener('click', nextLecture);
+        }
+
+        function setupDraggableProgress() {
+            const progressBar = document.querySelector('.progress-bar');
+            const progressHandle = document.querySelector('.progress-handle');
+            let isDragging = false;
+
+            // Mouse events
+            progressHandle.addEventListener('mousedown', startDragging);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDragging);
+
+            // Touch events for mobile
+            progressHandle.addEventListener('touchstart', startDragging);
+            document.addEventListener('touchmove', drag);
+            document.addEventListener('touchend', stopDragging);
+
+            function startDragging(e) {
+                e.preventDefault();
+                isDragging = true;
+                progressHandle.style.transition = 'none';
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+
+                const rect = progressBar.getBoundingClientRect();
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                const clickX = Math.max(0, Math.min(clientX - rect.left, rect.width));
+                const percentage = clickX / rect.width;
+
+                if (player && player.getDuration) {
+                    const time = percentage * player.getDuration();
+                    player.seekTo(time, true);
+                }
+            }
+
+            function stopDragging() {
+                isDragging = false;
+                progressHandle.style.transition = 'left 0.1s ease';
+            }
+        }
+
+        function preventRightClick() {
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                return false;
+            });
+
+            // Prevent keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Custom keyboard controls
+                switch (e.key) {
+                    case ' ':
+                        e.preventDefault();
+                        togglePlayPause();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        seekRelative(-10);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        seekRelative(10);
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        changeVolume(0.1);
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        changeVolume(-0.1);
+                        break;
+                }
+            });
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        function updatePlayPauseButton() {
+            const btn = document.querySelector('.play-pause-btn i');
+            btn.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+        }
+
+        function seekTo(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const percentage = clickX / rect.width;
+            const time = percentage * player.getDuration();
+            player.seekTo(time, true);
+        }
+
+        function seekRelative(seconds) {
+            const currentTime = player.getCurrentTime();
+            const newTime = Math.max(0, Math.min(currentTime + seconds, player.getDuration()));
+            player.seekTo(newTime, true);
+        }
+
+        function setVolume(vol) {
+            volume = Math.max(0, Math.min(1, vol));
+
+            // If volume is being set to 0, mute the player
+            if (volume === 0) {
+                player.mute();
+                isMuted = true;
+            } else {
+                // If volume is being increased from 0, unmute first
+                if (isMuted) {
+                    player.unMute();
+                    isMuted = false;
+                }
+                player.setVolume(volume * 100);
+            }
+
+            updateVolumeDisplay();
+        }
+
+        function changeVolume(delta) {
+            setVolume(volume + delta);
+        }
+
+        function toggleMute() {
+            if (isMuted) {
+                player.unMute();
+                isMuted = false;
+            } else {
+                player.mute();
+                isMuted = true;
+            }
+            updateVolumeDisplay();
+        }
+
+        function updateVolumeDisplay() {
+            const volumeBtn = document.querySelector('.volume-btn i');
+            const volumeSlider = document.querySelector('.volume-slider');
+
+            if (isMuted || volume === 0) {
+                volumeBtn.className = 'fas fa-volume-mute';
+            } else if (volume < 0.5) {
+                volumeBtn.className = 'fas fa-volume-down';
+            } else {
+                volumeBtn.className = 'fas fa-volume-up';
+            }
+
+            volumeSlider.value = volume * 100;
+        }
+
+        function toggleSettings() {
+            if (settingsOpen) {
+                closeSettings();
+            } else {
+                openSettings();
+            }
+        }
+
+        function openSettings() {
+            settingsOpen = true;
+            document.querySelector('.settings-dropdown').style.display = 'block';
+            document.querySelector('.settings-btn').style.background = 'rgba(255, 255, 255, 0.3)';
+        }
+
+        function closeSettings() {
+            settingsOpen = false;
+            document.querySelector('.settings-dropdown').style.display = 'none';
+            document.querySelector('.settings-btn').style.background = 'none';
+        }
+
+        function openSubSettings(type) {
+            subSettingsOpen = true;
+            currentSubSettings = type;
+            document.querySelector('.settings-dropdown').style.display = 'none';
+
+            if (type === 'quality') {
+                loadAvailableQualities();
+            } else if (type === 'speed') {
+                setupSpeedOptionListeners();
+            }
+
+            document.getElementById(type + '-sub-settings').style.display = 'block';
+        }
+
+        function setupSpeedOptionListeners() {
+            // Re-setup event listeners for speed options (in case they weren't set up initially)
+            document.querySelectorAll('.speed-option').forEach(option => {
+                // Remove existing listeners to prevent duplicates
+                option.replaceWith(option.cloneNode(true));
+            });
+
+            // Add fresh event listeners
+            document.querySelectorAll('.speed-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    setPlaybackRate(parseFloat(e.target.dataset.speed));
+                });
+            });
+        }
+
+        function closeSubSettings() {
+            subSettingsOpen = false;
+            currentSubSettings = null;
+            document.querySelectorAll('.sub-settings-dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        }
+
+        function loadAvailableQualities() {
+            const qualityContainer = document.getElementById('quality-options');
+            qualityContainer.innerHTML = '<div class="quality-loading">Detecting available qualities...</div>';
+
+            // Get available qualities from YouTube player
+            if (player && typeof player.getAvailableQualityLevels === 'function') {
+                try {
+                    const qualities = player.getAvailableQualityLevels();
+                    availableQualities = qualities;
+                    populateQualityOptions(qualities);
+                } catch (error) {
+                    console.log('Error getting available qualities:', error);
+                    // Fallback to common qualities
+                    fallbackQualityOptions();
+                }
+            } else {
+                // Fallback for when API is not available
+                fallbackQualityOptions();
+            }
+        }
+
+        function populateQualityOptions(qualities) {
+            const qualityContainer = document.getElementById('quality-options');
+            qualityContainer.innerHTML = '';
+
+            // Add Auto option first
+            const autoOption = document.createElement('div');
+            autoOption.className = 'quality-option';
+            if (currentQuality === 'auto') {
+                autoOption.classList.add('active');
+            }
+            autoOption.innerHTML = `
+                <span>Auto</span>
+                <small>Recommended</small>
+            `;
+            autoOption.onclick = () => selectQuality('auto');
+            qualityContainer.appendChild(autoOption);
+
+            // Add available quality options
+            const qualityLabels = {
+                'hd1080': '1080p HD',
+                'hd720': '720p HD',
+                'large': '480p',
+                'medium': '360p',
+                'small': '240p',
+                'tiny': '144p'
+            };
+
+            qualities.forEach(quality => {
+                const option = document.createElement('div');
+                option.className = 'quality-option';
+                if (currentQuality === quality) {
+                    option.classList.add('active');
+                }
+
+                const label = qualityLabels[quality] || quality.toUpperCase();
+                option.innerHTML = `
+                    <span>${label}</span>
+                `;
+                option.onclick = () => selectQuality(quality);
+                qualityContainer.appendChild(option);
+            });
+        }
+
+        function fallbackQualityOptions() {
+            const qualityContainer = document.getElementById('quality-options');
+            qualityContainer.innerHTML = '';
+
+            const fallbackQualities = [
+                { id: 'auto', label: 'Auto', desc: 'Recommended' },
+                { id: 'hd1080', label: '1080p HD' },
+                { id: 'hd720', label: '720p HD' },
+                { id: 'large', label: '480p' },
+                { id: 'medium', label: '360p' },
+                { id: 'small', label: '240p' },
+                { id: 'tiny', label: '144p' }
+            ];
+
+            fallbackQualities.forEach(quality => {
+                const option = document.createElement('div');
+                option.className = 'quality-option';
+                if (currentQuality === quality.id) {
+                    option.classList.add('active');
+                }
+
+                option.innerHTML = `
+                    <span>${quality.label}</span>
+                    ${quality.desc ? '<small>' + quality.desc + '</small>' : ''}
+                `;
+                option.onclick = () => selectQuality(quality.id);
+                qualityContainer.appendChild(option);
+            });
+        }
+
+        function selectQuality(quality) {
+            currentQuality = quality;
+            updateCurrentQualityDisplay();
+            setVideoQuality(quality);
+            closeSubSettings();
+        }
+
+        function updateCurrentQualityDisplay() {
+            const currentElement = document.getElementById('current-quality');
+            const qualityLabels = {
+                'auto': 'Auto',
+                'hd1080': '1080p HD',
+                'hd720': '720p HD',
+                'large': '480p',
+                'medium': '360p',
+                'small': '240p',
+                'tiny': '144p'
+            };
+            currentElement.textContent = qualityLabels[currentQuality] || 'Auto';
+        }
+
+        function setPlaybackRate(rate) {
+            currentSpeed = rate;
+            player.setPlaybackRate(rate);
+            updateCurrentSpeedDisplay();
+            updateSpeedOptions();
+            closeSubSettings();
+        }
+
+        function updateCurrentSpeedDisplay() {
+            const currentElement = document.getElementById('current-speed');
+            const speedLabels = {
+                1: 'Normal',
+                1.25: '1.25x',
+                1.5: '1.5x',
+                1.75: '1.75x',
+                2: '2x'
+            };
+            currentElement.textContent = speedLabels[currentSpeed] || 'Normal';
+        }
+
+        function updateSpeedOptions() {
+            document.querySelectorAll('.speed-option').forEach(option => {
+                option.classList.remove('active');
+                if (parseFloat(option.dataset.speed) === currentSpeed) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function setVideoQuality(quality) {
+            currentQuality = quality;
+
+            // Note: YouTube API doesn't allow direct quality control for embedded players
+            // This is a limitation of the YouTube IFrame API
+            // The resolution will be automatically chosen by YouTube based on the user's device and bandwidth
+            console.log('Quality setting requested:', quality);
+
+            // Show a subtle notification instead of alert
+            showResolutionNotification(quality);
+            closeSettings();
+        }
+
+        function showResolutionNotification(quality) {
+            // Create a subtle notification
+            const notification = document.createElement('div');
+            notification.className = 'resolution-notification';
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    z-index: 10000;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 14px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                    animation: slideDownFade 0.3s ease-out;
+                ">
+                    <i class="fas fa-video" style="margin-right: 8px; color: #00ff00;"></i>
+                    Resolution: ${quality.toUpperCase()}
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Add animation styles
+            if (!document.getElementById('resolution-notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'resolution-notification-styles';
+                style.textContent = `
+                    @keyframes slideDownFade {
+                        from { 
+                            opacity: 0; 
+                            transform: translateX(-50%) translateY(-20px); 
+                        }
+                        to { 
+                            opacity: 1; 
+                            transform: translateX(-50%) translateY(0); 
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        function updateResolutionOptions() {
+            document.querySelectorAll('.resolution-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.quality === currentQuality) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function updateDurationDisplay() {
+            if (videoDuration > 0) {
+                const formattedDuration = formatTime(videoDuration);
+                const durationElement = document.getElementById('lecture-duration');
+                if (durationElement) {
+                    durationElement.textContent = `Duration: ${formattedDuration}`;
+                }
+            }
+        }
+
+        function toggleFullscreen() {
+            const videoContainer = document.querySelector('.custom-video-player');
+
+            if (!document.fullscreenElement) {
+                videoContainer.requestFullscreen().then(() => {
+                    // Lock to landscape on mobile devices
+                    if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape').catch(() => {
+                            // Fallback for devices that don't support orientation lock
+                        });
+                    }
+                    document.querySelector('.fullscreen-btn i').className = 'fas fa-compress';
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    // Unlock orientation when exiting fullscreen
+                    if (screen.orientation && screen.orientation.unlock) {
+                        screen.orientation.unlock();
+                    }
+                    document.querySelector('.fullscreen-btn i').className = 'fas fa-expand';
+                });
+            }
+        }
+
+        function previousLecture() {
+            // Navigate to previous lecture
+            const urlParams = new URLSearchParams(window.location.search);
+            const cycleId = urlParams.get('cycle') || 'frb25';
+            const chapterId = urlParams.get('chapter') || '1';
+            const prevId = Math.max(1, parseInt(lectureId) - 1);
+            window.location.href = `video-player.html?id=${prevId}&cycle=${cycleId}&chapter=${chapterId}`;
+        }
+
+        function nextLecture() {
+            // Navigate to next lecture
+            const urlParams = new URLSearchParams(window.location.search);
+            const cycleId = urlParams.get('cycle') || 'frb25';
+            const chapterId = urlParams.get('chapter') || '1';
+            const nextId = parseInt(lectureId) + 1;
+            window.location.href = `video-player.html?id=${nextId}&cycle=${cycleId}&chapter=${chapterId}`;
+        }
+
+        function updateProgress() {
+            if (player && player.getCurrentTime) {
+                const currentTime = player.getCurrentTime();
+                const duration = player.getDuration();
+
+                if (duration > 0) {
+                    const progress = (currentTime / duration) * 100;
+                    const progressFill = document.querySelector('.progress-fill');
+                    const progressHandle = document.querySelector('.progress-handle');
+
+                    // Update progress fill
+                    progressFill.style.width = `${progress}%`;
+
+                    // Update progress handle position
+                    progressHandle.style.left = `${progress}%`;
+
+                    const timeDisplay = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+                    document.querySelector('.time-display').textContent = timeDisplay;
+                }
+            }
+
+            requestAnimationFrame(updateProgress);
+        }
+
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = Math.floor(seconds % 60);
+
+            if (hours > 0) {
+                return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            } else {
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+        }
+
+        // Load video when page loads
+        if (lectureId) {
+            loadYouTubeAPI();
+        } else {
+            alert('No lecture ID provided!');
+            goBack();
+        }
+
+        // Lecture card functionality
+        let lectureCardExpanded = false;
+
+        function toggleLectureCard() {
+            const header = document.querySelector('.lecture-card-header');
+            const content = document.querySelector('.lecture-card-content');
+            const chevron = document.getElementById('lecture-chevron');
+
+            if (lectureCardExpanded) {
+                content.classList.remove('expanded');
+                header.classList.remove('expanded');
+                lectureCardExpanded = false;
+            } else {
+                content.classList.add('expanded');
+                header.classList.add('expanded');
+                lectureCardExpanded = true;
+                loadLectureSlides();
+            }
+        }
+
+        async function loadLectureSlides() {
+            try {
+                const response = await fetch('lecture-slides.json');
+                const data = await response.json();
+
+                // Find the current lecture in the slides data
+                const currentLectureSlides = findLectureSlides(data, currentLecture);
+
+                if (currentLectureSlides && currentLectureSlides.slides && currentLectureSlides.slides.length > 0) {
+                    displayLectureSlides(currentLectureSlides.slides);
+                } else {
+                    displayNoSlides();
+                }
+            } catch (error) {
+                console.error('Error loading lecture slides:', error);
+                displayNoSlides();
+            }
+        }
+
+        function findLectureSlides(slidesData, currentLecture) {
+            console.log('Current lecture:', currentLecture);
+            console.log('Looking for lecture with title:', currentLecture.title);
+            console.log('Looking for lecture with ID:', currentLecture.id);
+
+            // Get current cycle and chapter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentCycle = urlParams.get('cycle');
+            const currentChapter = urlParams.get('chapter');
+
+            console.log('Current cycle from URL:', currentCycle);
+            console.log('Current chapter from URL:', currentChapter);
+
+            // First try to find by cycle, chapter, and lecture ID
+            if (currentCycle && slidesData.cycles[currentCycle]) {
+                const cycle = slidesData.cycles[currentCycle];
+                console.log('Found cycle:', cycle.title);
+
+                if (cycle.chaptersList && cycle.chaptersList.length > 0) {
+                    // Find the correct chapter by ID
+                    const chapter = cycle.chaptersList.find(c => c.id === parseInt(currentChapter));
+                    if (chapter) {
+                        console.log('Using chapter:', chapter.title);
+
+                        const lecture = chapter.lectures.find(l => l.id === currentLecture.id);
+                        if (lecture) {
+                            console.log('Found lecture by cycle + chapter + ID:', lecture.title);
+                            return lecture;
+                        }
+                    } else {
+                        console.log('Chapter not found:', currentChapter);
+                    }
+                }
+            }
+
+            // Fallback: search through all cycles (old method)
+            console.log('Falling back to search all cycles...');
+            for (const cycleKey in slidesData.cycles) {
+                const cycle = slidesData.cycles[cycleKey];
+                console.log('Checking cycle:', cycle.title);
+
+                for (const chapter of cycle.chaptersList) {
+                    console.log('Checking chapter:', chapter.title);
+
+                    for (const lecture of chapter.lectures) {
+                        console.log('Checking lecture:', lecture.title, 'ID:', lecture.id);
+
+                        // Try to match by title (more specific)
+                        if (lecture.title === currentLecture.title) {
+                            console.log('Found lecture by title:', lecture.title);
+                            return lecture;
+                        }
+
+                        // Try to match by ID as last resort
+                        if (lecture.id === currentLecture.id) {
+                            console.log('Found lecture by ID:', lecture.title);
+                            return lecture;
+                        }
+                    }
+                }
+            }
+
+            console.log('No matching lecture found');
+            return null;
+        }
+
+        function displayLectureSlides(slides) {
+            const content = document.getElementById('lecture-content');
+
+            // Always show the first slide directly
+            const slide = slides[0];
+
+            content.innerHTML = `
+                <div class="pdf-embed">
+                    <iframe 
+                        src="${slide.gdriveLink}" 
+                        width="100%" 
+                        height="600" 
+                        allow="autoplay"
+                        style="max-width: 800px;">
+                    </iframe>
+                </div>
+            `;
+        }
+
+
+
+        function displayNoSlides() {
+            const content = document.getElementById('lecture-content');
+            content.innerHTML = `
+                <div class="no-slides">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>No slides available</h4>
+                    <p>Lecture slides are not available for this class yet.</p>
+                </div>
+            `;
+        }
+
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        function setupTouchGestures() {
+            const videoContainer = document.querySelector('.video-container');
+
+            // Double tap detection
+            videoContainer.addEventListener('touchstart', handleTouchStart);
+            videoContainer.addEventListener('touchend', handleTouchEnd);
+
+            // Volume swipe gesture
+            videoContainer.addEventListener('touchmove', handleTouchMove);
+        }
+
+        function handleTouchStart(e) {
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            initialVolume = volume;
+            isVolumeGesture = false;
+            isSeekGesture = false; // Reset seek gesture
+
+            // Double tap detection
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+
+            if (tapLength < 500 && tapLength > 0) {
+                // Double tap detected
+                tapCount++;
+                if (tapCount === 2) {
+                    handleDoubleTap(touch.clientX, touch.clientY);
+                    tapCount = 0;
+                }
+            } else {
+                tapCount = 1;
+            }
+
+            lastTap = currentTime;
+        }
+
+        function handleTouchMove(e) {
+            if (e.touches.length !== 1) return;
+
+            const touch = e.touches[0];
+            const deltaX = Math.abs(touch.clientX - touchStartX);
+            const deltaY = touch.clientY - touchStartY;
+
+            // Check if it's a volume gesture (vertical swipe on right side)
+            if (touch.clientX > window.innerWidth * 0.75 && Math.abs(deltaY) > 20 && deltaX < 25) {
+                isVolumeGesture = true;
+                isSeekGesture = false; // Ensure seek gesture is false
+                e.preventDefault();
+
+                // Calculate volume change based on swipe distance with better sensitivity
+                const volumeChange = -deltaY / 80; // Increased sensitivity
+                let newVolume = initialVolume + volumeChange;
+
+                // Ensure volume stays within bounds
+                newVolume = Math.max(0, Math.min(1, newVolume));
+
+                // Handle mute state
+                if (isMuted && newVolume > 0) {
+                    // Unmute if user is trying to increase volume
+                    player.unMute();
+                    isMuted = false;
+                }
+
+                // Set the new volume
+                setVolume(newVolume);
+                return; // Exit early to prevent seek gesture
+            }
+
+            // Check if it's a seek gesture (horizontal swipe) - only if not a volume gesture
+            if (!isVolumeGesture && Math.abs(deltaX) > 30 && Math.abs(deltaY) < 30 && Math.abs(deltaX) > Math.abs(deltaY) * 2) {
+                isSeekGesture = true; // Set seek gesture to true
+                e.preventDefault();
+
+                // Calculate seek distance based on horizontal swipe
+                const seekDistance = deltaX / 1.5; // More sensitive seeking
+                const seekSeconds = Math.round(seekDistance / 8); // 8px = 1 second for better control
+
+                if (Math.abs(seekSeconds) >= 1) {
+                    // Seek forward or backward based on swipe direction
+                    if (touch.clientX > touchStartX) {
+                        // Swipe right - seek forward
+                        seekRelative(seekSeconds);
+                        showSeekIndicator(seekSeconds);
+                    } else {
+                        // Swipe left - seek backward
+                        seekRelative(-seekSeconds);
+                        showSeekIndicator(-seekSeconds);
+                    }
+
+                    // Update touch start position to prevent continuous seeking
+                    touchStartX = touch.clientX;
+                }
+            }
+        }
+
+        function handleTouchEnd(e) {
+            if (isVolumeGesture) {
+                isVolumeGesture = false;
+                // Show volume indicator briefly
+                showVolumeIndicator();
+            }
+
+            if (isSeekGesture) {
+                isSeekGesture = false;
+                // Seek gesture completed
+            }
+        }
+
+        function handleDoubleTap(x, y) {
+            const videoContainer = document.querySelector('.video-container');
+            const rect = videoContainer.getBoundingClientRect();
+            const relativeX = x - rect.left;
+            const containerWidth = rect.width;
+
+            if (relativeX < containerWidth / 2) {
+                // Left side - seek backward 10 seconds
+                seekRelative(-10);
+                showSeekIndicator(-10);
+            } else {
+                // Right side - seek forward 10 seconds
+                seekRelative(10);
+                showSeekIndicator(10);
+            }
+        }
+
+        function showSeekIndicator(seconds) {
+            // Create seek indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'seek-indicator';
+            indicator.innerHTML = `
+                <i class="fas fa-${seconds > 0 ? 'forward' : 'backward'}"></i>
+                <span>${Math.abs(seconds)}s</span>
+            `;
+
+            // Append to video player container instead of body for fullscreen support
+            document.querySelector('.custom-video-player').appendChild(indicator);
+
+            // Remove after animation
+            setTimeout(() => {
+                if (indicator.parentNode) {
+                    indicator.parentNode.removeChild(indicator);
+                }
+            }, 1000);
+        }
+
+        function showVolumeIndicator() {
+            // Create volume indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'volume-indicator';
+
+            // Determine the correct volume icon and text
+            let volumeIcon = 'volume-up';
+            let volumeText = `${Math.round(volume * 100)}%`;
+
+            if (isMuted || volume === 0) {
+                volumeIcon = 'volume-mute';
+                volumeText = 'Muted';
+            } else if (volume < 0.5) {
+                volumeIcon = 'volume-down';
+            }
+
+            indicator.innerHTML = `
+                <i class="fas fa-${volumeIcon}"></i>
+                <div class="volume-bar">
+                    <div class="volume-fill" style="width: ${isMuted ? 0 : volume * 100}%"></div>
+                </div>
+                <span>${volumeText}</span>
+            `;
+
+            // Append to video player container instead of body for fullscreen support
+            document.querySelector('.custom-video-player').appendChild(indicator);
+
+            // Remove after animation
+            setTimeout(() => {
+                if (indicator.parentNode) {
+                    indicator.parentNode.removeChild(indicator);
+                }
+            }, 1500);
+        }
+
+        function handleVideoTap() {
+            if (isPlaying) {
+                player.pauseVideo();
+                // Show controls when pausing and clear auto-hide timer
+                showControls();
+                if (controlsTimeout) {
+                    clearTimeout(controlsTimeout);
+                }
+            } else {
+                player.playVideo();
+                // Start auto-hide timer when playing
+                if (controlsTimeout) {
+                    clearTimeout(controlsTimeout);
+                }
+                controlsTimeout = setTimeout(() => {
+                    hideControls();
+                }, 3000);
+            }
+        }
+
+        function showControls() {
+            if (!isControlsVisible) {
+                document.querySelector('.custom-controls').style.opacity = '1';
+                document.querySelector('.custom-controls').style.visibility = 'visible';
+                document.querySelector('.custom-controls').style.pointerEvents = 'auto';
+                // Don't hide lock overlay - keep it visible
+                isControlsVisible = true;
+            }
+
+            // Clear existing timeout and set new one
+            if (controlsTimeout) {
+                clearTimeout(controlsTimeout);
+            }
+
+            // Auto-hide controls after 3 seconds
+            controlsTimeout = setTimeout(() => {
+                if (isPlaying) {
+                    hideControls();
+                }
+            }, 3000);
+        }
+
+        function hideControls() {
+            if (isControlsVisible) {
+                document.querySelector('.custom-controls').style.opacity = '0';
+                document.querySelector('.custom-controls').style.visibility = 'hidden';
+                document.querySelector('.custom-controls').style.pointerEvents = 'none';
+                // Don't hide lock overlay - keep it visible
+                isControlsVisible = false;
+            }
+        }
+    </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; All rights reserved.</p>
+            <p>Developed by Marjuk Amin</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Marjuk06" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/codenest_by_marjuk" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+            <p class="website-link">
+                To know more about me you can visit my website:
+                <a href="https://marjukcreates.org/" target="_blank">marjukcreates.org</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        function showUpdateNotification() {
+            const notification = document.createElement('div');
+            notification.id = 'sw-update-notification';
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    z-index: 10000;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 14px;
+                    max-width: 300px;
+                    animation: slideIn 0.3s ease-out;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                ">
+                    <i class="fas fa-sync-alt fa-spin" style="margin-right: 8px;"></i>
+                    <strong>🚀 Update Available!</strong><br>
+                    New content is ready. Click to refresh and get the latest updates.
+                    <button onclick="updateApp()" style="
+                        background: white;
+                        color: #667eea;
+                        border: none;
+                        padding: 8px 15px;
+                        border-radius: 8px;
+                        margin: 10px 0 0 0;
+                        cursor: pointer;
+                        font-weight: bold;
+                        width: 100%;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        Update Now
+                    </button>
+                </div>
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+        }
+
+        function updateApp() {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>

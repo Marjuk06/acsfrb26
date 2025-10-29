@@ -1,0 +1,39 @@
+RewriteEngine On
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html to clean URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1? [NC,L,R=301]
+
+# Handle specific routes
+RewriteRule ^admin$ admin.html [L]
+RewriteRule ^converter$ converter.html [L]
+RewriteRule ^chapters$ chapters.html [L]
+RewriteRule ^lectures$ lectures.html [L]
+RewriteRule ^video-player$ video-player.html [L]
+RewriteRule ^pdf-viewer$ pdf-viewer.html [L]
+RewriteRule ^routine$ routine.html [L]
+
+# Custom error pages
+ErrorDocument 404 /404.html
+
+# Security headers
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+
+# Cache control for static assets
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+</FilesMatch>
+
+<FilesMatch "\.(html)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 hour"
+</FilesMatch>
+

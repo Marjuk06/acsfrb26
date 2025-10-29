@@ -1,0 +1,112 @@
+{
+    "notesInfo": {
+        "title": "HSC 26 Chemistry Chapter Notes",
+        "description": "Comprehensive study materials and notes for Cycle 3",
+        "lastUpdated": "2024-01-25",
+        "totalNotes": 8,
+        "showNotes": true
+    },
+    "cycles": {
+        "3": {
+            "title": "Cycle 3",
+            "chapters": {
+                "1": {
+                    "title": "জৈব যৌগের সূচনা",
+                    "notes": [
+                        {
+                            "id": "3-1-1",
+                            "title": "জৈব যৌগের সূচনা",
+                            "fileSize": "572 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1LS6-Zl8pEWZHr6tGT3MvkhcMMsiO1FeU/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1LS6-Zl8pEWZHr6tGT3MvkhcMMsiO1FeU"
+                        }
+                    ]
+                },
+                "3": {
+                    "title": "সমাণুতা",
+                    "notes": [
+                        {
+                            "id": "3-3-1",
+                            "title": "সমাণুতা",
+                            "fileSize": "535 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1pmP0sznoLlUaNfC5Pr2I_FL5NPhxSC2A/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1pmP0sznoLlUaNfC5Pr2I_FL5NPhxSC2A"
+                        }
+                    ]
+                },
+                "4": {
+                    "title": "বিকারক ও বিক্রিয়ার প্রকারভেদ",
+                    "notes": [
+                        {
+                            "id": "3-4-1",
+                            "title": "বিকারক ও বিক্রিয়ার প্রকারভেদ",
+                            "fileSize": "338 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1_Uv2X3LPO06yApN2HqVLUckim3pHfNNH/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1_Uv2X3LPO06yApN2HqVLUckim3pHfNNH"
+                        }
+                    ]
+                },
+                "5": {
+                    "title": "অ্যারোমেটিক",
+                    "notes": [
+                        {
+                            "id": "3-5-1",
+                            "title": "অ্যারোমেটিক",
+                            "fileSize": "593 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1_V5TRqKYBBnH_tLKH5Kh5cVN-MWh691W/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1_V5TRqKYBBnH_tLKH5Kh5cVN-MWh691W"
+                        }
+                    ]
+                },
+                "6": {
+                    "title": "অ্যালকেন, অ্যালকিন, অ্যালকাইন-1",
+                    "notes": [
+                        {
+                            "id": "3-6-1",
+                            "title": "অ্যালকেন, অ্যালকিন, অ্যালকাইন-1",
+                            "fileSize": "784 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/10KtoDaZlfs4BKBSarb8ljvXdIEA3Ckn2/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=10KtoDaZlfs4BKBSarb8ljvXdIEA3Ckn2"
+                        }
+                    ]
+                },
+                "7": {
+                    "title": "অ্যালকাইল হ্যালাইড, অ্যারাইল হ্যালাইড, অ্যালকোহল, ইথার",
+                    "notes": [
+                        {
+                            "id": "3-7-1",
+                            "title": "অ্যালকাইল হ্যালাইড, অ্যারাইল হ্যালাইড, অ্যালকোহল, ইথার",
+                            "fileSize": "838 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1CZuTBGEr8m8eM1ttXmO4JdbSAh5ZxT1P/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1CZuTBGEr8m8eM1ttXmO4JdbSAh5ZxT1P"
+                        }
+                    ]
+                },
+                "8": {
+                    "title": "অ্যালডিহাইড কিটোন, জৈব এসিড, অ্যামিন",
+                    "notes": [
+                        {
+                            "id": "3-8-1",
+                            "title": "অ্যালডিহাইড কিটোন, জৈব এসিড, অ্যামিন",
+                            "fileSize": "762 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1Cc648ZQqwXF7CY1o_8X-0blmMdaw4HYY/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1Cc648ZQqwXF7CY1o_8X-0blmMdaw4HYY"
+                        }
+                    ]
+                },
+                "9": {
+                    "title": "অন্যান্য",
+                    "notes": [
+                        {
+                            "id": "3-9-1",
+                            "title": "অন্যান্য",
+                            "fileSize": "807 KB",
+                            "pdfUrl": "https://drive.google.com/file/d/1A9DqyYyY5BFQbdDugdov6jmDBkUeI3YL/preview",
+                            "downloadUrl": "https://drive.google.com/uc?export=download&id=1A9DqyYyY5BFQbdDugdov6jmDBkUeI3YL"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
