@@ -20,14 +20,14 @@
                     "lectures": [
                         {
                             "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Bangla lectures will be available soon",
+                            "title": "যৌবনের গান, বিদ্রোহী class 01",
+                            "videoUrl": "https://www.youtube.com/embed/-Z-c6b-IL-0",
+                            "description": "বাংলা ১ম পত্র class 01",
                             "slides": [
                                 {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Bangla lecture slides will be available soon"
+                                    "title": "যৌবনের গান, বিদ্রোহী class 01",
+                                    "gdriveLink": "https://drive.google.com/file/d/1JemqZofQM6V2gpVZR-snCchvmn3ypR59/preview",
+                                    "description": "বাংলা ১ম পত্র class 01"
                                 }
                             ]
                         }
@@ -37,7 +37,7 @@
                     "id": 2,
                     "title": "English 1st Paper",
                     "icon": "fas fa-language",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -62,14 +62,14 @@
                     "lectures": [
                         {
                             "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "English 2nd Paper lectures will be available soon",
+                            "title": "Right Forms of Verb Class-01",
+                            "videoUrl": "https://www.youtube.com/embed/3HaR_ieHkXQ",
+                            "description": "Right Forms of Verb Class-01",
                             "slides": [
                                 {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "English 2nd Paper lecture slides will be available soon"
+                                    "title": "Right Forms of Verb Class-01",
+                                    "gdriveLink": "https://drive.google.com/file/d/1fOAmz6zBAiSGmV0SrDProShi5zflmiWR/preview",
+                                    "description": "Right Forms of Verb Class-01"
                                 }
                             ]
                         }
@@ -79,7 +79,7 @@
                     "id": 4,
                     "title": "ICT",
                     "icon": "fas fa-laptop-code",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -100,7 +100,7 @@
                     "id": 5,
                     "title": "Physics 1st Paper",
                     "icon": "fas fa-atom",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -121,7 +121,7 @@
                     "id": 6,
                     "title": "Physics 2nd Paper",
                     "icon": "fas fa-lightbulb",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -142,7 +142,7 @@
                     "id": 7,
                     "title": "Chemistry 1st Paper",
                     "icon": "fas fa-flask",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -163,7 +163,7 @@
                     "id": 8,
                     "title": "Chemistry 2nd Paper",
                     "icon": "fas fa-vial",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -184,7 +184,7 @@
                     "id": 9,
                     "title": "Higher Math 1st Paper",
                     "icon": "fas fa-calculator",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -205,7 +205,7 @@
                     "id": 10,
                     "title": "Higher Math 2nd Paper",
                     "icon": "fas fa-square-root-alt",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -226,7 +226,7 @@
                     "id": 11,
                     "title": "Biology 1st Paper",
                     "icon": "fas fa-dna",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,
@@ -247,7 +247,7 @@
                     "id": 12,
                     "title": "Biology 2nd Paper",
                     "icon": "fas fa-microscope",
-                    "status": "live",
+                    "status": "coming_soon",
                     "lectures": [
                         {
                             "id": 1,

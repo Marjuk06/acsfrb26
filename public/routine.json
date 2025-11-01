@@ -2,32 +2,32 @@
     "routines": [
         {
             "id": "routine-1",
-            "title": "Weekly Class Schedule",
-            "description": "Main weekly class routine for all subjects",
-            "image": "routine-weekly.jpg",
-            "type": "schedule"
+            "title": "Weekly Class & Exam Routine",
+            "description": "Tap to view full size",
+            "image": "Nov 1-Nov 7.jpg",
+            "type": "class"
         },
         {
             "id": "routine-2",
-            "title": "Exam Schedule",
-            "description": "Upcoming exam dates and timings",
-            "image": "routine-exam.jpg",
-            "type": "exam"
+            "title": "Class Routine 1",
+            "description": "Tap to view full size",
+            "image": "1.jpg",
+            "type": "class"
         },
         {
             "id": "routine-3",
-            "title": "Lab Schedule",
-            "description": "Laboratory practical class timings",
-            "image": "routine-lab.jpg",
-            "type": "lab"
+            "title": "Class Routine 2",
+            "description": "Tap to view full size",
+            "image": "2.jpg",
+            "type": "class"
         },
         {
             "id": "routine-4",
-            "title": "Holiday Calendar",
-            "description": "Academic holidays and breaks",
-            "image": "routine-holiday.jpg",
-            "type": "holiday"
+            "title": "Class Routine 3",
+            "description": "Tap to view full size",
+            "image": "3.jpg",
+            "type": "class"
         }
     ],
-    "lastUpdated": "2024-01-15"
+    "lastUpdated": "2025-10-29"
 }

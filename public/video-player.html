@@ -24,12 +24,12 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css?v=1761718086696" as="style">
+    <link rel="preload" href="style.css?v=1762020417472" as="style">
     <link rel="preload" href="videos.json" as="fetch" crossorigin>
     <link rel="dns-prefetch" href="//www.youtube.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="style.css?v=1761718086696">
+    <link rel="stylesheet" href="style.css?v=1762020417472">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7351267348730556"
         crossorigin="anonymous"></script>
@@ -223,6 +223,18 @@
                 const response = await fetch('videos.json');
                 const data = await response.json();
 
+                // Load FRB 26 data if it exists
+                try {
+                    const frb26Response = await fetch('frb26/videos.json');
+                    if (frb26Response.ok) {
+                        const frb26Data = await frb26Response.json();
+                        // Merge FRB 26 data into main data
+                        data.cycles.frb26 = frb26Data.cycles.frb26;
+                    }
+                } catch (e) {
+                    console.log('FRB 26 videos not found, using main data only');
+                }
+
                 // Store data globally for faster access
                 window.videoData = data;
 
@@ -238,7 +250,24 @@
         async function loadAndPlayVideo() {
             try {
                 // Use preloaded data if available
-                const data = window.videoData || await fetch('videos.json').then(r => r.json());
+                let data = window.videoData;
+
+                // If no preloaded data, fetch it
+                if (!data) {
+                    data = await fetch('videos.json').then(r => r.json());
+
+                    // Load FRB 26 data if it exists
+                    try {
+                        const frb26Response = await fetch('frb26/videos.json');
+                        if (frb26Response.ok) {
+                            const frb26Data = await frb26Response.json();
+                            // Merge FRB 26 data into main data
+                            data.cycles.frb26 = frb26Data.cycles.frb26;
+                        }
+                    } catch (e) {
+                        console.log('FRB 26 videos not found, using main data only');
+                    }
+                }
 
                 // Get cycle and chapter from URL parameters
                 const urlParams = new URLSearchParams(window.location.search);
@@ -973,6 +1002,17 @@
 
         async function loadLectureSlides() {
             try {
+                // Get current cycle from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentCycle = urlParams.get('cycle') || 'frb25';
+
+                // For FRB 26, slides are included in the lecture data
+                if (currentCycle === 'frb26' && currentLecture && currentLecture.slides && currentLecture.slides.length > 0) {
+                    displayLectureSlides(currentLecture.slides);
+                    return;
+                }
+
+                // For other cycles, load from lecture-slides.json
                 const response = await fetch('lecture-slides.json');
                 const data = await response.json();
 

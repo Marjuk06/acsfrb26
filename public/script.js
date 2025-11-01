@@ -882,6 +882,18 @@ async function loadLecture(lectureId) {
         const response = await fetch('videos.json');
         const data = await response.json();
 
+        // Load FRB 26 data if it exists (similar to loadDynamicCounts)
+        try {
+            const frb26Response = await fetch('frb26/videos.json');
+            if (frb26Response.ok) {
+                const frb26Data = await frb26Response.json();
+                // Merge FRB 26 data into main data
+                data.cycles.frb26 = frb26Data.cycles.frb26;
+            }
+        } catch (e) {
+            console.log('FRB 26 videos not found, using main data only');
+        }
+
         // Parse the lecture ID to get cycle, chapter, and lecture numbers
         const parts = lectureId.split('-');
         const cycleId = parts[0];
