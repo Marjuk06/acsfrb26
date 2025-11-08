@@ -447,7 +447,7 @@ function generateCycleCards(data) {
     });
 
     // Add "Our Other Subject Courses" card at the end
-    addOtherSubjectsCard(cyclesContainer);
+    // Removed Other Subjects section per requirement
 }
 
 function addOtherSubjectsCard(container) {

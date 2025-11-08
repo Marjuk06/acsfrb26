@@ -1,5 +1,5 @@
 {
-    "showMarquee": true,
-    "showSlider": true,
-    "showRoutine": true
+    "showMarquee": false,
+    "showSlider": false,
+    "showRoutine": false
 }

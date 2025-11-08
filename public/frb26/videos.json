@@ -1,13 +1,13 @@
 {
     "courseInfo": {
-        "title": "ACS Final Revision Batch 26",
-        "subtitle": "FRB 26 Video Lectures",
+        "title": "Bondi Pathshala Power Play 26",
+        "subtitle": "Powerplay 26 Video Lectures",
         "description": "Live video lectures for HSC 2026 students across all subjects"
     },
     "cycles": {
         "frb26": {
             "id": "frb26",
-            "title": "FRB 26",
+            "title": "Powerplay 26",
             "icon": "fas fa-play-circle",
             "status": "live",
             "chapters": 12,
@@ -17,252 +17,84 @@
                     "title": "Bangla",
                     "icon": "fas fa-book",
                     "status": "live",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "যৌবনের গান, বিদ্রোহী class 01",
-                            "videoUrl": "https://www.youtube.com/embed/-Z-c6b-IL-0",
-                            "description": "বাংলা ১ম পত্র class 01",
-                            "slides": [
-                                {
-                                    "title": "যৌবনের গান, বিদ্রোহী class 01",
-                                    "gdriveLink": "https://drive.google.com/file/d/1JemqZofQM6V2gpVZR-snCchvmn3ypR59/preview",
-                                    "description": "বাংলা ১ম পত্র class 01"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 2,
                     "title": "English 1st Paper",
                     "icon": "fas fa-language",
-                    "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "English 1st Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "English 1st Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "status": "live",
+                    "lectures": []
                 },
                 {
                     "id": 3,
                     "title": "English 2nd Paper",
                     "icon": "fas fa-pen-fancy",
                     "status": "live",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Right Forms of Verb Class-01",
-                            "videoUrl": "https://www.youtube.com/embed/3HaR_ieHkXQ",
-                            "description": "Right Forms of Verb Class-01",
-                            "slides": [
-                                {
-                                    "title": "Right Forms of Verb Class-01",
-                                    "gdriveLink": "https://drive.google.com/file/d/1fOAmz6zBAiSGmV0SrDProShi5zflmiWR/preview",
-                                    "description": "Right Forms of Verb Class-01"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 4,
                     "title": "ICT",
                     "icon": "fas fa-laptop-code",
-                    "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "ICT lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "ICT lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "status": "live",
+                    "lectures": []
                 },
                 {
                     "id": 5,
                     "title": "Physics 1st Paper",
                     "icon": "fas fa-atom",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Physics 1st Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Physics 1st Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 6,
                     "title": "Physics 2nd Paper",
                     "icon": "fas fa-lightbulb",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Physics 2nd Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Physics 2nd Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 7,
                     "title": "Chemistry 1st Paper",
                     "icon": "fas fa-flask",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Chemistry 1st Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Chemistry 1st Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 8,
                     "title": "Chemistry 2nd Paper",
                     "icon": "fas fa-vial",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Chemistry 2nd Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Chemistry 2nd Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 9,
                     "title": "Higher Math 1st Paper",
                     "icon": "fas fa-calculator",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Higher Math 1st Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Higher Math 1st Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 10,
                     "title": "Higher Math 2nd Paper",
                     "icon": "fas fa-square-root-alt",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Higher Math 2nd Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Higher Math 2nd Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 11,
                     "title": "Biology 1st Paper",
                     "icon": "fas fa-dna",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Biology 1st Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Biology 1st Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 },
                 {
                     "id": 12,
                     "title": "Biology 2nd Paper",
                     "icon": "fas fa-microscope",
                     "status": "coming_soon",
-                    "lectures": [
-                        {
-                            "id": 1,
-                            "title": "Coming Soon",
-                            "videoUrl": "",
-                            "description": "Biology 2nd Paper lectures will be available soon",
-                            "slides": [
-                                {
-                                    "title": "Coming Soon",
-                                    "gdriveLink": "",
-                                    "description": "Biology 2nd Paper lecture slides will be available soon"
-                                }
-                            ]
-                        }
-                    ]
+                    "lectures": []
                 }
             ]
         }

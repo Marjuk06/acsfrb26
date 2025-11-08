@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACS Final Revision Batch 26 - Home</title>
+    <title>Bondi Pathshala Power Play 26 - Home</title>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ACS Final Revision Batch 26">
-    <meta name="description" content="ACS Final Revision Batch 26 video lectures and study materials">
+    <meta name="apple-mobile-web-app-title" content="Bondi Pathshala Power Play 26">
+    <meta name="description" content="Bondi Pathshala Power Play 26 video lectures and study materials">
     <meta name="keywords" content="ACS, final revision, batch 26, video lectures, education, Bangladesh">
     <meta name="author" content="Marjuk Amin">
 
@@ -22,12 +22,18 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css?v=1762020417472" as="style">
+    <link rel="preload" href="style.css?v=1762620941395" as="style">
     <link rel="preload" href="videos.json" as="fetch" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="style.css?v=1762020417472">
+    <link rel="stylesheet" href="style.css?v=1762620941395">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7351267348730556"
         crossorigin="anonymous"></script>
 </head>
@@ -51,7 +57,7 @@
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div class="pwa-prompt-text">
-                            <h3>Install ACS FRB 26</h3>
+                            <h3>Install Bondi Pathshala Power Play 26</h3>
                             <p>Add this app to your home screen for quick access. Videos require internet.</p>
                         </div>
                         <div class="pwa-prompt-actions">
@@ -68,10 +74,10 @@
                 </div>
             </div>
 
-            <h1>ACS Final Revision Batch 26</h1>
-           
+            <h1>Bondi Pathshala Power Play 26</h1>
+
             <p class="subtitle" id="marqueeContainer" style="display: none;"></p>
-            
+
         </header>
 
         <!-- Notice: Image Auto Slider -->
@@ -126,6 +132,66 @@
             </p>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <div class="login-header">
+                <div class="login-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2>Bondi Pathshala Power Play 26</h2>
+                <p>Please login to access the content</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required
+                        autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">
+                        <i class="fas fa-key"></i>
+                        Password
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password"
+                            required autocomplete="current-password">
+                        <button type="button" class="password-toggle-btn" id="passwordToggleBtn"
+                            aria-label="Toggle password visibility">
+                            <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loginError" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="login-button" id="loginSubmitBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Session valid for 1 week</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple Device Warning -->
+    <div id="multipleDeviceWarning" class="multiple-device-warning" style="display: none;">
+        <div class="warning-content">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Multiple Device Detected</h3>
+            <p>Your account has been logged in from another device. You have been logged out for security reasons.</p>
+            <button onclick="document.getElementById('multipleDeviceWarning').style.display='none'">OK</button>
+        </div>
+    </div>
 
     <style>
         .notice-slider {
@@ -382,7 +448,71 @@
         }
     </style>
 
-    <script src="script.js?v=1762020417472"></script>
+    <!-- Firebase Config and Auth -->
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+
+    <!-- Login Handler -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const loginError = document.getElementById('loginError');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+            const passwordToggleBtn = document.getElementById('passwordToggleBtn');
+            const passwordInput = document.getElementById('loginPassword');
+            const passwordToggleIcon = document.getElementById('passwordToggleIcon');
+
+            // Password visibility toggle
+            if (passwordToggleBtn && passwordInput) {
+                passwordToggleBtn.addEventListener('click', () => {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+
+                    // Toggle icon
+                    if (type === 'text') {
+                        passwordToggleIcon.classList.remove('fa-eye');
+                        passwordToggleIcon.classList.add('fa-eye-slash');
+                        passwordToggleBtn.setAttribute('aria-label', 'Hide password');
+                    } else {
+                        passwordToggleIcon.classList.remove('fa-eye-slash');
+                        passwordToggleIcon.classList.add('fa-eye');
+                        passwordToggleBtn.setAttribute('aria-label', 'Show password');
+                    }
+                });
+            }
+
+            if (loginForm) {
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+
+                    // Hide error
+                    loginError.style.display = 'none';
+                    loginSubmitBtn.disabled = true;
+                    loginSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Logging in...</span>';
+
+                    try {
+                        if (window.authSystem) {
+                            await window.authSystem.login(email, password);
+                            // Success - modal will be hidden by auth system
+                        } else {
+                            throw new Error('Authentication system not initialized');
+                        }
+                    } catch (error) {
+                        console.error('Login error:', error);
+                        loginError.textContent = error.message || 'Invalid email or password. Please try again.';
+                        loginError.style.display = 'block';
+                        loginSubmitBtn.disabled = false;
+                        loginSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i><span>Login</span>';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="script.js?v=1762620941395"></script>
     <script>
         // Settings-controlled visibility for marquee, slider, and routine card
         (async function () {

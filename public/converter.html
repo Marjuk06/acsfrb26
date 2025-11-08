@@ -254,6 +254,56 @@
             margin-bottom: 5px;
         }
 
+        /* Practice Sheet Toggle Styles */
+        .practice-sheet-toggle {
+            background: var(--panel-2);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .practice-sheet-toggle:hover {
+            border-color: var(--primary);
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .practice-sheet-toggle label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            margin: 0;
+        }
+
+        .practice-sheet-toggle input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .practice-sheet-toggle label span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .practice-sheet-toggle input[type="checkbox"]:checked+span {
+            color: var(--accent);
+        }
+
+        .practice-sheet-fields {
+            animation: slideDown 0.3s ease;
+        }
+
         .back-btn {
             position: fixed;
             top: 20px;
@@ -431,6 +481,33 @@
                 </div>
             </div>
 
+            <!-- Practice Sheet Toggle -->
+            <div class="practice-sheet-toggle">
+                <label for="hasPracticeSheet">
+                    <input type="checkbox" id="hasPracticeSheet" onchange="togglePracticeSheetFields()">
+                    <span>
+                        <i class="fas fa-check-square"></i> Has Practice Sheet
+                    </span>
+                </label>
+            </div>
+
+            <!-- Practice Sheet Fields (Hidden by default) -->
+            <div id="practiceSheetFields" class="practice-sheet-fields" style="display: none; margin-bottom: 20px;">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                    <div class="field">
+                        <label for="practiceSheetUrl">Practice Sheet URL (Preview)</label>
+                        <input type="url" id="practiceSheetUrl"
+                            placeholder="https://drive.google.com/file/d/FILE_ID/preview">
+                    </div>
+                    <div class="field">
+                        <label for="solutionUrl">Solution URL (Preview)</label>
+                        <input type="url" id="solutionUrl"
+                            placeholder="https://drive.google.com/file/d/FILE_ID/preview">
+                    </div>
+                </div>
+            </div>
+
             <button class="btn" onclick="generateJSON()">
                 <i class="fas fa-file-code"></i>
                 Generate JSON
@@ -441,6 +518,7 @@
                 <p>• Generates complete lecture object with video + slides</p>
                 <p>• Ready to paste into frb26/videos.json</p>
                 <p>• Includes proper ID, title, videoUrl, description, and slides array</p>
+                <p>• Toggle practice sheet checkbox to include/exclude practice sheets and solutions</p>
             </div>
 
             <div class="result-box" id="jsonResult">
@@ -513,12 +591,30 @@
             document.getElementById('driveResult').classList.add('show');
         }
 
+        // Toggle Practice Sheet Fields
+        function togglePracticeSheetFields() {
+            const checkbox = document.getElementById('hasPracticeSheet');
+            const fields = document.getElementById('practiceSheetFields');
+
+            if (checkbox.checked) {
+                fields.style.display = 'block';
+            } else {
+                fields.style.display = 'none';
+                // Clear the fields when hidden
+                document.getElementById('practiceSheetUrl').value = '';
+                document.getElementById('solutionUrl').value = '';
+            }
+        }
+
         // JSON Generator
         function generateJSON() {
             const title = document.getElementById('lectureTitle').value.trim();
             const description = document.getElementById('lectureDescription').value.trim();
             const videoUrl = document.getElementById('videoUrl').value.trim();
             const slideUrl = document.getElementById('slideUrl').value.trim();
+            const hasPracticeSheet = document.getElementById('hasPracticeSheet').checked;
+            const practiceSheetUrl = document.getElementById('practiceSheetUrl').value.trim();
+            const solutionUrl = document.getElementById('solutionUrl').value.trim();
 
             if (!title) {
                 alert('Please enter a lecture title');
@@ -536,6 +632,23 @@
                     "description": description || ""
                 }] : []
             };
+
+            // Add practice sheet fields if enabled
+            if (hasPracticeSheet) {
+                jsonData.hasPracticeSheet = true;
+                jsonData.practiceSheet = {
+                    "title": `Practice Sheet - ${title}`,
+                    "gdriveLink": practiceSheetUrl || "",
+                    "description": `Practice sheet for ${title}`
+                };
+                jsonData.solution = {
+                    "title": `Solution - ${title}`,
+                    "gdriveLink": solutionUrl || "",
+                    "description": `Solution for ${title}`
+                };
+            } else {
+                jsonData.hasPracticeSheet = false;
+            }
 
             document.getElementById('jsonContent').textContent = JSON.stringify(jsonData, null, 2);
             document.getElementById('jsonResult').classList.add('show');

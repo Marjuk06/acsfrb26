@@ -1,6 +1,6 @@
 {
-    "name": "ACS Final Revision Batch 26",
-    "short_name": "ACS FRB 26",
+    "name": "Bondi Pathshala Power Play 26",
+    "short_name": "Power Play 26",
     "description": "Comprehensive revision courses for HSC 2026 students across all subjects",
     "start_url": "/",
     "display": "standalone",
@@ -45,9 +45,9 @@
     ],
     "shortcuts": [
         {
-            "name": "FRB 26 Lectures",
-            "short_name": "FRB 26",
-            "description": "Access FRB 26 lectures directly",
+            "name": "Powerplay 26 Lectures",
+            "short_name": "PP 26",
+            "description": "Access Powerplay 26 lectures directly",
             "url": "/chapters?cycle=frb26",
             "icons": [
                 {
@@ -59,7 +59,7 @@
         {
             "name": "Archive Classes",
             "short_name": "Archive",
-            "description": "Access archived classes",
+            "description": "Access archived classes (Powerplay 25)",
             "url": "/chapters?cycle=frb25",
             "icons": [
                 {

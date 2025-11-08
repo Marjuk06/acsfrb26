@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player - ACS Final Revision Batch 26</title>
+    <title>Video Player - Bondi Pathshala Power Play 26</title>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="ACS Final Revision Batch 26">
-    <meta name="description" content="ACS Final Revision Batch 26 video lectures and study materials">
+    <meta name="apple-mobile-web-app-title" content="Bondi Pathshala Power Play 26">
+    <meta name="description" content="Bondi Pathshala Power Play 26 video lectures and study materials">
     <meta name="keywords" content="ACS, final revision, batch 26, video lectures, education, Bangladesh">
     <meta name="author" content="Marjuk Amin">
 
@@ -24,12 +24,12 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css?v=1762020417472" as="style">
+    <link rel="preload" href="style.css?v=1762620941395" as="style">
     <link rel="preload" href="videos.json" as="fetch" crossorigin>
     <link rel="dns-prefetch" href="//www.youtube.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="style.css?v=1762020417472">
+    <link rel="stylesheet" href="style.css?v=1762620941395">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7351267348730556"
         crossorigin="anonymous"></script>
@@ -146,6 +146,32 @@
                 <div class="loading-spinner">
                     <i class="fas fa-spinner fa-spin"></i>
                     <span>Loading lecture slides...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lecture-card" id="practice-sheet-card" style="display: none;">
+            <div class="lecture-card-header" onclick="togglePracticeSheetCard()">
+                <h3>📝 Practice Sheet</h3>
+                <i class="fas fa-chevron-down" id="practice-sheet-chevron"></i>
+            </div>
+            <div class="lecture-card-content" id="practice-sheet-content">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading practice sheet...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lecture-card" id="solution-card" style="display: none;">
+            <div class="lecture-card-header" onclick="toggleSolutionCard()">
+                <h3>✅ Solution of Practice Sheet</h3>
+                <i class="fas fa-chevron-down" id="solution-chevron"></i>
+            </div>
+            <div class="lecture-card-content" id="solution-content">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading solution...</span>
                 </div>
             </div>
         </div>
@@ -308,8 +334,25 @@
                     // Update duration
                     document.getElementById('lecture-duration').textContent = `Duration: ${currentLecture.duration}`;
 
-                    // Create YouTube player with optimized settings
-                    createPlayer();
+                    // Show/hide practice sheet cards based on hasPracticeSheet flag
+                    const practiceSheetCard = document.getElementById('practice-sheet-card');
+                    const solutionCard = document.getElementById('solution-card');
+                    if (currentLecture.hasPracticeSheet === true) {
+                        practiceSheetCard.style.display = 'block';
+                        solutionCard.style.display = 'block';
+                    } else {
+                        practiceSheetCard.style.display = 'none';
+                        solutionCard.style.display = 'none';
+                    }
+
+                    // Check if video URL exists and is valid before creating player
+                    if (currentLecture.videoUrl && currentLecture.videoUrl.trim() !== '') {
+                        // Create YouTube player with optimized settings
+                        createPlayer();
+                    } else {
+                        // Show "No video" message
+                        showNoVideoMessage();
+                    }
                 } else {
                     alert('Lecture not found!');
                     goBack();
@@ -321,8 +364,32 @@
             }
         }
 
+        function showNoVideoMessage() {
+            const videoContainer = document.querySelector('.video-container');
+            if (videoContainer) {
+                videoContainer.innerHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: #1a1a1a; border-radius: 15px; padding: 40px; text-align: center;">
+                        <i class="fas fa-video-slash" style="font-size: 64px; color: #667eea; margin-bottom: 20px;"></i>
+                        <h2 style="color: #ffffff; margin-bottom: 10px;">Coming Soon</h2>
+                        <p style="color: #98a2c3; font-size: 1.1rem;">No video</p>
+                        <p style="color: #667eea; margin-top: 10px; font-size: 0.9rem;">Video will be available soon</p>
+                    </div>
+                `;
+            }
+        }
+
         function createPlayer() {
+            if (!currentLecture || !currentLecture.videoUrl || currentLecture.videoUrl.trim() === '') {
+                showNoVideoMessage();
+                return;
+            }
+
             const videoId = getVideoIdFromUrl(currentLecture.videoUrl);
+
+            if (!videoId || videoId.trim() === '') {
+                showNoVideoMessage();
+                return;
+            }
 
             player = new YT.Player('youtube-iframe', {
                 height: '100%',
@@ -1124,6 +1191,124 @@
                     <i class="fas fa-file-pdf"></i>
                     <h4>No slides available</h4>
                     <p>Lecture slides are not available for this class yet.</p>
+                </div>
+            `;
+        }
+
+        // Practice Sheet functionality
+        let practiceSheetCardExpanded = false;
+
+        function togglePracticeSheetCard() {
+            const header = document.querySelector('#practice-sheet-card .lecture-card-header');
+            const content = document.getElementById('practice-sheet-content');
+            const chevron = document.getElementById('practice-sheet-chevron');
+
+            if (practiceSheetCardExpanded) {
+                content.classList.remove('expanded');
+                header.classList.remove('expanded');
+                practiceSheetCardExpanded = false;
+            } else {
+                content.classList.add('expanded');
+                header.classList.add('expanded');
+                practiceSheetCardExpanded = true;
+                loadPracticeSheet();
+            }
+        }
+
+        async function loadPracticeSheet() {
+            try {
+                if (currentLecture && currentLecture.practiceSheet && currentLecture.practiceSheet.gdriveLink) {
+                    displayPracticeSheet(currentLecture.practiceSheet);
+                } else {
+                    displayNoPracticeSheet();
+                }
+            } catch (error) {
+                console.error('Error loading practice sheet:', error);
+                displayNoPracticeSheet();
+            }
+        }
+
+        function displayPracticeSheet(practiceSheet) {
+            const content = document.getElementById('practice-sheet-content');
+            content.innerHTML = `
+                <div class="pdf-embed">
+                    <iframe 
+                        src="${practiceSheet.gdriveLink}" 
+                        width="100%" 
+                        height="600" 
+                        allow="autoplay"
+                        style="max-width: 800px;">
+                    </iframe>
+                </div>
+            `;
+        }
+
+        function displayNoPracticeSheet() {
+            const content = document.getElementById('practice-sheet-content');
+            content.innerHTML = `
+                <div class="no-slides">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>No practice sheet available</h4>
+                    <p>Practice sheet is not available for this class yet.</p>
+                </div>
+            `;
+        }
+
+        // Solution functionality
+        let solutionCardExpanded = false;
+
+        function toggleSolutionCard() {
+            const header = document.querySelector('#solution-card .lecture-card-header');
+            const content = document.getElementById('solution-content');
+            const chevron = document.getElementById('solution-chevron');
+
+            if (solutionCardExpanded) {
+                content.classList.remove('expanded');
+                header.classList.remove('expanded');
+                solutionCardExpanded = false;
+            } else {
+                content.classList.add('expanded');
+                header.classList.add('expanded');
+                solutionCardExpanded = true;
+                loadSolution();
+            }
+        }
+
+        async function loadSolution() {
+            try {
+                if (currentLecture && currentLecture.solution && currentLecture.solution.gdriveLink) {
+                    displaySolution(currentLecture.solution);
+                } else {
+                    displayNoSolution();
+                }
+            } catch (error) {
+                console.error('Error loading solution:', error);
+                displayNoSolution();
+            }
+        }
+
+        function displaySolution(solution) {
+            const content = document.getElementById('solution-content');
+            content.innerHTML = `
+                <div class="pdf-embed">
+                    <iframe 
+                        src="${solution.gdriveLink}" 
+                        width="100%" 
+                        height="600" 
+                        allow="autoplay"
+                        style="max-width: 800px;">
+                    </iframe>
+                </div>
+            `;
+        }
+
+        function displayNoSolution() {
+            const content = document.getElementById('solution-content');
+            content.innerHTML = `
+                <div class="no-slides">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>No solution available</h4>
+                    <p>Solution is not available for this class yet.</p>
                 </div>
             `;
         }
